@@ -14,32 +14,35 @@
         rel="stylesheet"
     />
     <script src="https://kit.fontawesome.com/dfb2727f7d.js" crossorigin="anonymous"></script>
-    <link rel="icon" type="image/x-icon" href="../../resources/Images/ava-web.png">
+    <link rel="icon" type="image/x-icon" href="../../resources/Images/Vit.png">
     <title>Trang quản trị - Quản lý sân</title>
+    <link rel="stylesheet" href="../../resources/css/intro.css">
 
 </head>
-<body style="background-color: whitesmoke">
+<body>
+<div id="intro" class="bg-image">
+<div class="mask">
 <div class="d-flex flex-nowrap">
 
-    {{--Sidebar--}}
-    <div class="d-flex flex-column flex-shrink-0 bg-success bg-gradient border-end border-black border-1 ps-2">
-        <a href="{{ route('customers.index') }}" class="link-dark" style="width: 83px">
-            <img src="../../resources/Images/ava-web.png" style="width: 100%">
+    <!--Sidebar -->
+    <div class="d-flex flex-column flex-shrink-0 bg-success bg-opacity-75 bg-gradient border border-white border-1 ps-2">
+        <a href="{{ route('Customer.index') }}" class="link-dark" style="width: 83px">
+            <img src="../../resources/Images/Vit.png" style="width: 100%">
         </a>
         <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
             <li class="nav-item">
-                <a href="{{ route('admin.index') }}" class="nav-link py-3 border-bottom border-black border-2" style="width: 83px">
-                    <img src="../../resources/Images/bar-chart.png" style="width: 24px; height: 24px">
+                <a href="{{ route('Admin.index') }}" class="nav-link py-3 border-bottom border-black border-2" style="width: 83px">
+                    <img src="../../resources/Images/bar-graph.png" style="width: 24px; height: 24px">
                 </a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link py-3 bg-warning border-bottom border-black border-2" style="width: 83px">
-                    <img src="../../resources/Images/football-field.png" style="width: 24px; height: 24px">
+                <a href="#" class="nav-link py-3 bg-info border-bottom border-black border-2" style="width: 83px">
+                    <img src="../../resources/Images/72.png" style="width: 24px; height: 24px">
                 </a>
             </li>
             <li class="nav-item">
-                <a href="{{ route('admin.customers') }}" class="nav-link py-3 border-bottom border-black border-2" style="width: 83px">
-                    <img src="../../resources/Images/customer.png" style="width: 24px; height: 24px">
+                <a href="{{ route('Admin.customers') }}" class="nav-link py-3 border-bottom border-black border-2" style="width: 83px">
+                    <img src="../../resources/Images/end-user.png" style="width: 24px; height: 24px">
                 </a>
             </li>
             <li class="nav-item">
@@ -50,7 +53,7 @@
         </ul>
         <div class="dropup border-top">
             <a href="#" class="d-flex align-items-center justify-content-center p-3 link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="../../resources/Images/ava-web.png" alt="Admin" width="42" height="42" class="rounded-circle">
+                <img src="../../resources/Images/Vit.png" alt="Admin" width="42" height="42" class="rounded-circle">
             </a>
             <ul class="dropdown-menu text-small shadow">
                 <li>
@@ -60,28 +63,28 @@
         </div>
     </div>
 
-    {{--Main--}}
+    <!--Main -->
     <div class="col col-11 ps-3">
 
-        {{--        Breadcrumb--}}
+        <!--Bread crumb -->
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{ route('customers.index') }}">Trang chủ</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('Customer.index') }}">Trang chủ</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Quản lý sân</li>
             </ol>
         </nav>
 
-        {{--        Title--}}
+        <!--Title -->
         <div>
-            <h1 class="text-success mt-4" style="font-family: 'Segoe UI Black'; font-size: xxx-large">QUẢN LÝ SÂN</h1>
+            <h1 class="text-white mt-4" style="font-family: 'Segoe UI Black'; font-size: xxx-large">QUẢN LÝ SÂN</h1>
         </div>
-        <div class="border-top border-success border-4 my-4">
+        <div class="border-top border-4 my-4">
 
-            {{--            Table--}}
-            <table class="table table-success table-striped" border="1px" cellpadding="0" cellspacing="0" width="100%">
+<!--Table -->
+            <table class="table table-info table-striped" border="1px" cellpadding="0" cellspacing="0" width="100%">
                 <thead>
                 <tr>
-                    <a class="btn btn-success btn-lg my-2" href="{{ route('fields.create') }}"><i class="fa-regular fa-square-plus fa-lg fa-bounce"></i></a>
+                    <a class="btn btn-success btn-lg my-2" href="{{ route('fields.create') }}"><i class="fa-solid fa-circle-plus"></i></a>
                     <th scope="col">ID sân</th>
                     <th scope="col">Tên sân</th>
                     <th scope="col">Ảnh sân</th>
@@ -103,10 +106,10 @@
                     <td>{{ $item->types->type }}</td>
 
                     <td>
-                        <a class="btn btn-warning btn-lg my-1" href="{{ route('fields.edit', $item->id) }}"><i class="fa-regular fa-pen-to-square fa-shake"></i></a>
-                        <button type="button" class="btn btn-danger btn-lg my-1" data-bs-toggle="modal" data-bs-target="#myModal{{ $item->id }}"><i class="fa-solid fa-dumpster fa-shake"></i></button>
+                        <a class="btn btn-warning btn-lg my-1" href="{{ route('fields.edit', $item->id) }}"><i class="fa-solid fa-pen-to-square"></i></a>
+                        <button type="button" class="btn btn-danger btn-lg my-1" data-bs-toggle="modal" data-bs-target="#myModal{{ $item->id }}"><i class="fa-solid fa-trash-can"></i></button>
 
-                        {{--Modal--}}
+                        <!--Mordal -->
                         <div class="modal fade" id="myModal{{ $item->id }}">
                             <div class="modal-dialog">
                                 <div class="modal-content">
@@ -143,6 +146,8 @@
             {{ $fields->links() }}
         </div>
     </div>
+</div>
+</div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
