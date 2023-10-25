@@ -14,43 +14,43 @@
         rel="stylesheet"
     />
     <script src="https://kit.fontawesome.com/dfb2727f7d.js" crossorigin="anonymous"></script>
-    <link rel="icon" type="image/x-icon" href="../../Images/Vit.png">
+    <link rel="icon" type="image/x-icon" href="../../resources/Images/Vit.png">
     <title>Trang quản trị - Quản lý người dùng</title>
-    <link rel="stylesheet" href="../../css/intro.css">
+    <link rel="stylesheet" href="../../resources/css/intro.css">
 </head>
 <body>
 <div id="intro" class="bg-image">
     <div class="mask">
 <div class="d-flex flex-nowrap">
-    <div class="d-flex flex-column flex-shrink-0 bg-success bg-gradient border-end border-black border-1 ps-2">
-        <a href="{{ route('customers.index') }}" class="link-dark" style="width: 83px">
-            <img src="../../Images/Vit.png" style="width: 100%">
+    <div class="d-flex flex-column flex-shrink-0 bg-success bg-opacity-75 bg-gradient border-end border-black border-1 ps-2">
+        <a href="{{ route('Customer.index') }}" class="link-dark" style="width: 83px">
+            <img src="../../resources/Images/Vit.png" style="width: 100%">
         </a>
         <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
             <li class="nav-item">
-                <a href="{{ route('admin.index') }}" class="nav-link py-3 border-bottom border-black border-2" style="width: 83px">
-                    <img src="../../Images/bar-graph.png" style="width: 24px; height: 24px">
+                <a href="{{ route('Admin.index') }}" class="nav-link py-3 border-bottom border-black border-2" style="width: 83px">
+                    <img src="../../resources/Images/bar-graph.png" style="width: 24px; height: 24px">
                 </a>
             </li>
             <li class="nav-item">
                 <a href="{{ route('fields.index') }}" class="nav-link py-3 border-bottom border-black border-2" style="width: 83px">
-                    <img src="../../Images/72.png" style="width: 24px; height: 24px">
+                    <img src="../../resources/Images/72.png" style="width: 24px; height: 24px">
                 </a>
             </li>
             <li class="nav-item">
                 <a href="#" class="nav-link py-3 bg-warning border-bottom border-black border-2" style="width: 83px">
-                    <img src="../../Images/end-user.png" style="width: 24px; height: 24px">
+                    <img src="../../resources/Images/end-user.png" style="width: 24px; height: 24px">
                 </a>
             </li>
             <li class="nav-item">
                 <a href="#" class="nav-link py-3 border-bottom border-black border-2" style="width: 83px">
-                    <img src="../../Images/clipboard.png" style="width: 24px; height: 24px">
+                    <img src="../../resources/Images/clipboard.png" style="width: 24px; height: 24px">
                 </a>
             </li>
         </ul>
         <div class="dropup border-top">
             <a href="#" class="d-flex align-items-center justify-content-center p-3 link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="../../Images/Vit.png" alt="Admin" width="42" height="42" class="rounded-circle">
+                <img src="../../resources/Images/Vit.png" alt="Admin" width="42" height="42" class="rounded-circle">
             </a>
             <ul class="dropdown-menu text-small shadow">
                 <li>
@@ -60,13 +60,15 @@
         </div>
     </div>
     <div class="col col-11 ps-3">
-        <p><a href="{{ route('customers.index') }}" class="link-primary">Trang chủ</a> / <a href="#" class="link-secondary" aria-disabled="true">Quản lý người dùng</a></p>
+        <div class="" style="background-color: #e0e0e0">
+        <p><a href="{{ route('Customer.index') }}" class="link-primary">Trang chủ</a> / <a href="#" class="link-secondary" aria-disabled="true">Quản lý người dùng</a></p>
+        </div>
         <div>
             <h1 class="text-white" style="font-family: 'Segoe UI Black'; font-size: xxx-large">QUẢN LÝ NGƯỜI DÙNG</h1>
         </div>
         <div class="border-top border-4 my-4">
 <!--            Table-->
-            <table class="table table-success table-striped mt-4" border="1px" cellpadding="0" cellspacing="0" width="100%">
+            <table class="table table-info table-striped mt-4" border="1px" cellpadding="0" cellspacing="0" width="100%">
                 <thead>
                 <tr>
                     <th scope="col">ID người dùng</th>
@@ -86,7 +88,6 @@
                         <td>{{ $item->phonenumber }}</td>
                         <td>{{ $item->email }}</td>
                         <td>{{ $item->password }}</td>
-<!--
                     </tr>
                 @endforeach
                 </tbody>
@@ -98,6 +99,7 @@
 </div>
 </div>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
 </body>
 </html>

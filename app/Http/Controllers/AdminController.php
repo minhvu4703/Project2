@@ -40,7 +40,7 @@ class AdminController extends Controller
 
     public function customers() {
         $customers = Customer::paginate(10);
-        return view('admin.customers', [
+        return view('Admin.customers', [
             'customers' => $customers
         ]);
     }

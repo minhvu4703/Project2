@@ -25,7 +25,7 @@
     <div class="mask">
         <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom" style="background-color:green"  >
             <div class="container-fluid ">
-                <a class="navbar-brand " href="http://localhost/project2/resources/views/Customer/index.php"><img src="../resources/Images/Vit.png" alt="" height=10% width=10%> SigmaDuck - Cho thuê Sân Bóng đá</a>
+                <a class="navbar-brand " href="{{ route('Customer.index') }}"><img src="../resources/Images/Vit.png" alt="" height=10% width=10%> SigmaDuck - Cho thuê Sân Bóng đá</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
