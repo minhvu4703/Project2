@@ -10,10 +10,6 @@
     <link rel="icon" type="image/x-icon" href="../resources/Images/Vit.png">
     <title>Trang chủ - SigmaDuck</title>
     <link rel="stylesheet" href="../resources/css/intro.css">
-<!--    <link-->
-<!--        href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.css"-->
-<!--        rel="stylesheet"-->
-<!--    />-->
     <link
         rel="stylesheet"
         href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -23,120 +19,136 @@
 <!-- Navbar -->
 <div id="intro" class="bg-image">
     <div class="mask">
-        <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom" style="background-color:green"  >
+        <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom" style="background-color:green">
             <div class="container-fluid ">
-                <a class="navbar-brand " href="{{ route('Customer.index') }}"><img src="../resources/Images/Vit.png" alt="" height=10% width=10%> SigmaDuck - Cho thuê Sân Bóng đá</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <a class="navbar-brand " href="{{ route('Customer.index') }}"><img src="../resources/Images/Vit.png"
+                                                                                   alt="" height=10% width=10%>SigmaDuck - Cho thuê Sân Bóng đá</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="offset-md-5 collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-2">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Giới thiệu</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="{{ route('Admin.index') }}">Quản trị</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="{{ route('Customer.orders') }}">Đặt sân</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="{{ route('Customer.contact') }}">Liên hệ</a>
-                        </li>
+{{--                        <li class="nav-item">--}}
+{{--                            <a class="nav-link active" aria-current="page" href="#">Trang chủ</a>--}}
+{{--                        </li>--}}
+{{--                        <li class="nav-item">--}}
+{{--                            <a class="nav-link text-white" href="{{ route('Customer.contact') }}">Liên hệ</a>--}}
+{{--                        </li>--}}
                     </ul>
                 </div>
             </div>
         </nav>
         <!-- End navbar -->
         <div class=" border-bottom" style="background-color: green; color: white">
-            <marquee behavior="" direction="left" scrollamount="15">Trang web cho thuê sân bóng đá hàng đầu Việt Nam</marquee>
+            <marquee behavior="" direction="left" scrollamount="15">Trang web cho thuê sân bóng đá hàng đầu Việt Nam
+            </marquee>
         </div>
-                <div class="col">
-                    <div class="col-5 col-md-8 offset-md-2">
-                        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img height="300" src="../resources/Images/san.jpg" class="d-block w-100" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                    <img height="300" src="https://dxbhsrqyrr690.cloudfront.net/sidearm.nextgen.sites/ung.sidearmsports.com/images/2023/3/28/IMG_8243_F57vK.jpg" class="d-block w-100" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                    <img height="300" src="../resources/Images/san1.jpg" class="d-block w-100" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                    <img height="300" src="https://patch.com/img/cdn20/users/103600/20210910/073254/styles/patch_image/public/turf-field-opens-goal-___10185029396.jpg" class="d-block w-100" alt="...">
-                                </div>
-                            </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
+        <div class="col">
+            <div class="col-5 col-md-8 offset-md-2">
+                <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img height="300" src="../resources/Images/san.jpg" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img height="300"
+                                 src="https://dxbhsrqyrr690.cloudfront.net/sidearm.nextgen.sites/ung.sidearmsports.com/images/2023/3/28/IMG_8243_F57vK.jpg"
+                                 class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img height="300" src="../resources/Images/san1.jpg" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img height="300"
+                                 src="https://patch.com/img/cdn20/users/103600/20210910/073254/styles/patch_image/public/turf-field-opens-goal-___10185029396.jpg"
+                                 class="d-block w-100" alt="...">
                         </div>
                     </div>
-<!--         Card           -->
-                    <div class="d-flex d-flex justify-content-evenly my-3">
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                            data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                            data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+            <!--         Card           -->
+            <div class="d-flex d-flex justify-content-evenly my-2">
 
-                        <div class="card" style="width: 18rem;">
-                            <img src="../resources/Images/field1.png" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
-                            </div>
-                        </div>
+                <div class="card" style="width: 18rem;">
+                    <img src="../resources/Images/field1.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Sân số 1</h5>
+                        <p class="card-text"></p>
+                        <a href="{{ route('Customer.orders') }}" class="btn btn-primary">Đặt sân</a>
+                    </div>
+                </div>
+-
+                <div class="card" style="width: 18rem;">
+                    <img src="../resources/Images/field2.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Sân số 2</h5>
+                        <p class="card-text"></p>
+                        <a href="{{ route('Customer.orders') }}" class="btn btn-primary">Đặt sân</a>
+                    </div>
+                </div>
 
-                        <div class="card" style="width: 18rem;">
-                            <img src="../resources/Images/field2.png" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
-                            </div>
-                        </div>
+                <div class="card" style="width: 18rem;">
+                    <img src="../resources/Images/field3.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Sân số 3</h5>
+                        <p class="card-text"></p>
+                        <a href="{{ route('Customer.orders') }}" class="btn btn-primary">Đặt sân</a>
+                    </div>
+                </div>
 
-                        <div class="card" style="width: 18rem;">
-                            <img src="../resources/Images/field3.png" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
-                            </div>
-                        </div>
-
-                        <div class="card" style="width: 18rem;">
-                            <img src="../resources/Images/field4.png" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
-                            </div>
-                        </div>
+                <div class="card" style="width: 18rem;">
+                    <img src="../resources/Images/field4.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Sân số 4</h5>
+                        <p class="card-text"></p>
+                        <a href="{{ route('Customer.orders') }}" class="btn btn-primary">Đặt sân</a>
                     </div>
                 </div>
             </div>
+            {{--         End Card           --}}
+        </div>
+        <div class="row mt-2">
+            <marquee behavior="" direction="right" scrollamount="30"> <img src="../resources/Images/mesi.png" height= 7% width= 7%></marquee>
         </div>
     </div>
 </div>
-</div>
-<footer class="d-flex flex-warp justify-content-between align-items-center py-1" style="background-color: green">
-    <div class="col-md-4 align-items-center text-white ms-3" style="--bs-text-opacity: .75;">© 2023 SigmaDuck Copyright.</div>
+<footer class="d-flex flex-warp justify-content-between align-items-center py-1"
+        style="background-color: green">
+    <div class="col-md-4 align-items-center text-white ms-3" style="--bs-text-opacity: .75;">© 2023 SigmaDuck
+        Copyright.
+    </div>
     <ul class="nav col-md-4 justify-content-end list-unstyled d-flex me-3">
         <li class="ms-3" style="font-size: 25px">
-            <a href="https://twitter.com" class="text-white" style="--bs-text-opacity: .75;"><i class="fa-brands fa-twitter"></i></a>
+            <a href="https://twitter.com" class="text-white" style="--bs-text-opacity: .75;"><i
+                    class="fa-brands fa-twitter"></i></a>
         </li>
         <li class="ms-3" style="font-size: 25px">
-            <a href="https://www.facebook.com" class="text-white" style="--bs-text-opacity: .75;"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://www.facebook.com" class="text-white" style="--bs-text-opacity: .75;"><i
+                    class="fa-brands fa-facebook"></i></a>
         </li>
         <li class="ms-3" style="font-size: 25px">
-            <a href="https://github.com/SaikiroMurphy/Project2Frontend" class="text-white" style="--bs-text-opacity: .75;"><i class="fa-brands fa-github"></i></a>
+            <a href="https://github.com/SaikiroMurphy/Project2Frontend" class="text-white"
+               style="--bs-text-opacity: .75;"><i class="fa-brands fa-github"></i></a>
         </li>
     </ul>
 </footer>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script></body>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+</body>
 </html>

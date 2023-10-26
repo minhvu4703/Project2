@@ -32,7 +32,7 @@
         <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
             <li class="nav-item">
                 <a href="{{ route('Admin.index') }}" class="nav-link py-3 border-bottom border-black border-2" style="width: 83px">
-                    <img src="../../resources/Images/bar-graph.png" style="width: 24px; height: 24px">
+                    <img src="../../resources/Images/analytics.png" style="width: 24px; height: 24px">
                 </a>
             </li>
             <li class="nav-item">
@@ -67,7 +67,7 @@
     <div class="col col-11 ps-3">
 
         <!--Bread crumb -->
-        <div class="" style="background-color: #e0e0e0">
+        <div class="" style="background-color: white">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ route('Customer.index') }}">Trang chủ</a></li>
@@ -78,7 +78,7 @@
 
         <!--Title -->
         <div>
-            <h1 class="text-white mt-4" style="font-family: 'Segoe UI Black'; font-size: xxx-large">QUẢN LÝ SÂN</h1>
+            <h1 class="text-white mt-4" style="font-family: 'system-ui'; font-size: xxx-large ; text-align: center">QUẢN LÝ SÂN</h1>
         </div>
         <div class="border-top border-4 my-4">
 
@@ -86,7 +86,7 @@
             <table class="table table-info table-striped" border="1px" cellpadding="0" cellspacing="0" width="100%">
                 <thead>
                 <tr>
-                    <a class="btn btn-success btn-lg my-2" href="{{ route('fields.create') }}"><i class="fa-solid fa-circle-plus"></i></a>
+                    <a class="btn btn-success btn-lg my-2" href="#"><i class="fa-solid fa-circle-plus"></i></a> <!--{{ route('fields.create') }} -->
                     <th scope="col">ID sân</th>
                     <th scope="col">Tên sân</th>
                     <th scope="col">Ảnh sân</th>
@@ -108,8 +108,8 @@
                     <td>{{ $item->types->type }}</td>
 
                     <td>
-                        <a class="btn btn-warning btn-lg my-1" href="{{ route('fields.edit', $item->id) }}"><i class="fa-solid fa-pen-to-square"></i></a>
-                        <button type="button" class="btn btn-danger btn-lg my-1" data-bs-toggle="modal" data-bs-target="#myModal{{ $item->id }}"><i class="fa-solid fa-trash-can"></i></button>
+{{--                        <a class="btn btn-warning btn-lg my-1" href="#"><i class="fa-solid fa-pen-to-square"></i></a>    <!--{{ route('fields.edit', $item->id) }} -->--}}
+{{--                        <button type="button" class="btn btn-danger btn-lg my-1" data-bs-toggle="modal" data-bs-target="#myModal{{ $item->id }}"><i class="fa-solid fa-trash-can"></i></button>--}}
 
                         <!--Mordal -->
                         <div class="modal fade" id="myModal{{ $item->id }}">

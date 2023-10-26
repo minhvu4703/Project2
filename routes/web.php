@@ -32,6 +32,6 @@ Route::prefix('/admin')->group(function (){
     Route::delete('/fields/{id}', [\App\Http\Controllers\FieldController::class, 'destroy'])->name('fields.destroy');
     Route::get('/fields/{field}/edit', [\App\Http\Controllers\FieldController::class, 'edit'])->name('fields.edit');
     Route::put('/fields/{field}/edit', [\App\Http\Controllers\FieldController::class, 'update'])->name('fields.update');
-    Route::get('/order', [\App\Http\Controllers\OrderController::class, 'index'])->name('admin.orders');
+    Route::get('/order', [\App\Http\Controllers\OrderController::class, 'index'])->name('Admin.orders');
 
 });
