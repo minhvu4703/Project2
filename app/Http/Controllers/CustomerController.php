@@ -116,23 +116,24 @@ class CustomerController extends Controller
         $del_cust->destroyCustomer();
         return Redirect::route('Customer.index');
     }
-//
-//    public function login() {
-//        return view('customers.login');
-//    }
-//    public function loginProcess(\Illuminate\Http\Request $request) {
-//        $account = $request->only('email', 'password');
-//        // Xác thực đăng nhập
-//        if (Auth::guard('customers')->attempt($account)) {
-//            // Cho login
-//            // Lấy thông tin customers
-//            $customers = Auth::guard('customers')->user();
-//            Auth::login($customers);
-//            session(['customers' => $customers]);
-//            return Redirect::route('customers.index');
-//        } else {
-//            // Quay về trang login
-//            return Redirect::back();
-//        }
-//    }
+
+    // Function login
+    public function login() {
+        return view('Customer.login');
+    }
+
+    public function loginProcess(Request $request) {
+        $account = $request->only(['email', 'password']);
+//        $check = Auth::guard('admins')->attempt($account);
+//        dd($check);
+        if(Auth::guard('customers')->attempt($account)) {
+            $customer = Auth::guard('customers')->user();
+            Auth::guard('customers')->login($customer);
+            session(['customers' => $customer]);
+//            dd($account);
+            return Redirect::route('Customer.index');
+        } else {
+            return Redirect::back();
+        }
+    }
 }

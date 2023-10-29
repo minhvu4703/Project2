@@ -80,13 +80,12 @@
                 </div>
             </div>
             <div class="row">
-            <div class="row mt-1" style="background-color: aquamarine">
-                <b class="text-white " style="font-size: x-large">ĐẶT SÂN</b>
+            <div class="row mt-1" style="margin-bottom: 50px; margin-top: 50px">
+                <b class="text-white bg-success" style="font-size: x-large; text-align: center">ĐẶT SÂN</b>
             </div>
-            <div class="row py-2" style="background-color: aqua">
-                <div class="col-4">
-                    <form class="" action="" method="post">
-                        <div class="form-floating mb-3">
+            <div class="d-flex d-flex justify-content-evenly my-2" style="align-content: center">
+                    <form class="col-4" action="" method="post">
+                        <div class="form-floating mb-5">
                             <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
                             <label for="floatingInput" style="text-align: center">Email</label>
                         </div>
@@ -94,7 +93,9 @@
                             <input type="text" class="form-control" id="floatingName" placeholder="Họ tên">
                             <label for="floatingName" style="text-align: center">Mật Khẩu</label>
                         </div>
-                        <div class="form-floating mb-3">
+                    </form>
+                    <form class="col-4" action="" method="post">
+                        <div class="form-floating mb-5">
                             <input placeholder="Select date" class="form-control" type="date" id="Date"
                                    placeholder="Ngày đặt">
                             <label for="Date" style="text-align: center">Ngày đặt sân</label>
@@ -112,8 +113,9 @@
 {{--                                   placeholder="Giờ kết thúc">--}}
 {{--                            <label for="TimeEn">Giờ kết thúc</label>--}}
 {{--                        </div>--}}
-
                     </form>
+            </div>
+                <btn class="d-flex d-flex justify-content-evenly my-2" style="align-content: center">
                     <input type="button" id="btn" class="btn btn-warning" value="Đặt sân"/>
                     <script language="javascript">
                         var button = document.getElementById("btn");
@@ -121,33 +123,32 @@
                             alert("Bạn đã đặt sân thành công");
                         }
                     </script>
-                </div>
-            </div>
+                </btn>
             </div>
         </div>
-        <!--Footer-->
-        <footer class="d-flex flex-warp justify-content-between align-items-center py-1"
-                style="background-color: green">
-            <div class="col-md-4 align-items-center text-white ms-3" style="--bs-text-opacity: .75;">© 2023 SigmaDuck
-                Copyright.
-            </div>
-            <ul class="nav col-md-4 justify-content-end list-unstyled d-flex me-3">
-                <li class="ms-3" style="font-size: 25px">
-                    <a href="https://twitter.com" class="text-white" style="--bs-text-opacity: .75;"><i
-                            class="fa-brands fa-twitter"></i></a>
-                </li>
-                <li class="ms-3" style="font-size: 25px">
-                    <a href="https://www.facebook.com" class="text-white" style="--bs-text-opacity: .75;"><i
-                            class="fa-brands fa-facebook"></i></a>
-                </li>
-                <li class="ms-3" style="font-size: 25px">
-                    <a href="https://github.com/SaikiroMurphy/Project2Frontend" class="text-white"
-                       style="--bs-text-opacity: .75;"><i class="fa-brands fa-github"></i></a>
-                </li>
-            </ul>
-        </footer>
     </div>
 </div>
+<!--Footer-->
+<footer class="d-flex flex-warp justify-content-between align-items-center py-1"
+        style="background-color: green">
+    <div class="col-md-4 align-items-center text-white ms-3" style="--bs-text-opacity: .75;">© 2023 SigmaDuck
+        Copyright.
+    </div>
+    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex me-3">
+        <li class="ms-3" style="font-size: 25px">
+            <a href="https://twitter.com" class="text-white" style="--bs-text-opacity: .75;"><i
+                    class="fa-brands fa-twitter"></i></a>
+        </li>
+        <li class="ms-3" style="font-size: 25px">
+            <a href="https://www.facebook.com" class="text-white" style="--bs-text-opacity: .75;"><i
+                    class="fa-brands fa-facebook"></i></a>
+        </li>
+        <li class="ms-3" style="font-size: 25px">
+            <a href="https://github.com/SaikiroMurphy/Project2Frontend" class="text-white"
+               style="--bs-text-opacity: .75;"><i class="fa-brands fa-github"></i></a>
+        </li>
+    </ul>
+</footer>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
         crossorigin="anonymous"></script>
