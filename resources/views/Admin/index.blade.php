@@ -12,6 +12,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.css" rel="stylesheet"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
     <link rel="stylesheet" href="../resources/css/intro.css">
+    <link rel="stylesheet" href="../resources/css/sidebar.css">
 </head>
 <div id="intro" class="bg-image">
 <div class="mask">
@@ -22,33 +23,30 @@
 
                 <!--Sidebar -->
                 <div
-                    class="d-flex flex-column flex-shrink-0 bg-success bg-opacity-75 bg-gradient border border-white border-1 ps-2">
-                    <a href="{{ route('Customer.index') }}" class="link-dark" style="width: 83px">
-                        <img src="../resources/Images/Vit.png" style="width: 100%">
+                    id="sidebar" class="d-flex flex-column flex-shrink-0 bg-success bg-opacity-75 bg-gradient border border-white border-1 ps-2">
+                    <a href="{{ route('Admin.index') }}" class="link-dark border-bottom border-white border-5" style="width: 83px">
+                        <img src="../resources/Images/admin.png" style="width: 100%">
                     </a>
                     <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link py-3 bg-info border-bottom border-black border-2"
-                               style="width: 83px">
-                                <img src="../resources/Images/analytics.png" style="width: 24px; height: 24px">
+                        <li class="nav-item bg-info border border-white border-1" style="margin-bottom: 20px; margin-top: 20px">
+                            <a href="#" class="" style="width: 83px">
+                                <img src="../resources/Images/analytics.png" style="width: 50px; height: 50px">
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="{{ route('fields.index') }}"
-                               class="nav-link py-3 border-bottom border-black border-2" style="width: 83px">
-                                <img src="../resources/Images/72.png" style="width: 24px; height: 24px">
+                        <li class="nav-item" style="margin-bottom: 20px; margin-top: 20px">
+                            <a href="{{ route('fields.index') }}" class="" style="width: 83px">
+                                <img src="../resources/Images/pitch.png" style="width: 50px; height: 50px">
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="{{ route('Admin.customers') }}"
-                               class="nav-link py-3 border-bottom border-black border-2" style="width: 83px">
-                                <img src="../resources/Images/end-user.png" style="width: 24px; height: 24px">
+                        <li class="nav-item" style="margin-bottom: 20px; margin-top: 20px">
+                            <a href="{{ route('Admin.customers') }}" class="" style="width: 83px">
+                                <img src="../resources/Images/end-user.png" style="width: 50px; height: 50px">
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link py-3 border-bottom border-black border-2" style="width: 83px">
+                        <li class="nav-item" style="margin-bottom: 20px; margin-top: 20px">
+                            <a href="#" class="" style="width: 83px">
                             {{-- {{ route('Admin.orders') }} --}}
-                                <img src="../resources/Images/clipboard.png" style="width: 24px; height: 24px">
+                                <img src="../resources/Images/clipboard.png" style="width: 50px; height: 50px">
                             </a>
                         </li>
                     </ul>
@@ -78,37 +76,33 @@
                         <li class="list-group-item d-flex justify-content-between align-items-start mt-4">
                             <div class="ms-2 me-auto">
                                 <div class="fw-bold">Sân 7</div>Số lượng sân 7
-                                <img src="../resources/Images/field 7.png" width="50px" height="50px" >
+
                             </div>
-{{--                            <span class="fs-1">{{$count7}}</span>--}}
+                            <span class="fs-1">{{$fieldCount}} <img src="../resources/Images/field 7.png" width="50px" height="50px" ></span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-start mt-4">
                             <div class="ms-2 me-auto">
                                 <div class="fw-bold">Sân 11</div>Số lượng sân 11
-                                <img src="../resources/Images/field 11.png" width="50px" height="50px" >
                             </div>
-{{--                            <span class="fs-1">{{$count11}}</span>--}}
+                            <span class="fs-1">{{$fieldCount}} <img src="../resources/Images/field 11.png" width="50px" height="50px" ></span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-start mt-4">
                             <div class="ms-2 me-auto">
                                 <div class="fw-bold">Người dùng</div>Số lượng người dùng đã đăng ký
-                                <img src="../resources/Images/user.png" width="50px" height="50px" >
                             </div>
-{{--                            <span class="fs-1">{{$custCount}}</span>--}}
+                            <span class="fs-1">{{$custCount}} <img src="../resources/Images/user.png" width="50px" height="50px" ></span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-start mt-4">
                             <div class="ms-2 me-auto">
                                 <div class="fw-bold">Nhân viên</div>Số lượng nhân viên
-                                <img src="../resources/Images/customer-service.png" width="50px" height="50px" >
                             </div>
-{{--                            <span class="fs-1">{{ $adCount }}</span>--}}
+                            <span class="fs-1">{{ $adCount }} <img src="../resources/Images/customer-service.png" width="50px" height="50px" ></span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-start mt-4">
                             <div class="ms-2 me-auto">
                                 <div class="fw-bold">Đặt sân</div>Số lượng đơn đặt sân
-                                <img src="../resources/Images/shopping-cart.png" width="50px" height="50px" >
                             </div>
-{{--                            <span class="fs-1">{{ $ordCount }}</span>--}}
+                            <span class="fs-1">{{ $ordCount }} <img src="../resources/Images/shopping-cart.png" width="50px" height="50px" ></span>
                         </li>
                     </ul>
                 </div>

@@ -21,17 +21,36 @@ Route::prefix('/customer')->group(function () {
     Route::get('/', [\App\Http\Controllers\CustomerController::class, 'index'])->name('Customer.index');
     Route::get('/orders', [\App\Http\Controllers\CustomerController::class, 'order'])->name('Customer.orders');
     Route::get('/contact', [\App\Http\Controllers\CustomerController::class, 'contact'])->name('Customer.contact');
+    Route::get('/login', [\App\Http\Controllers\CustomerController::class, 'login'])->name('Customer.login');
+    Route::post('/loginProcess', [\App\Http\Controllers\CustomerController::class, 'loginProcess'])->name('Customer.loginProcess');
+    Route::get('/register', [\App\Http\Controllers\CustomerController::class, 'create'])->name('Customer.register');
+    Route::post('/register', [\App\Http\Controllers\CustomerController::class, 'store'])->name('Customer.store');
 });
 
 Route::prefix('/admin')->group(function (){
+    Route::get('/login', [\App\Http\Controllers\AdminController::class, 'login'])->name('dashboard.login');
+    Route::post('/loginProcess', [\App\Http\Controllers\AdminController::class, 'loginProcess'])->name('dashboard.loginProcess');
     Route::get('/',[\App\Http\Controllers\AdminController::class, 'index'])->name('Admin.index');
     Route::get('/fields',[\App\Http\Controllers\FieldController::class, 'index'])->name('fields.index');
     Route::get('/fields/create', [\App\Http\Controllers\FieldController::class, 'create'])->name('fields.create');
     Route::post('/fields/store', [\App\Http\Controllers\FieldController::class, 'store'])->name('fields.store');
+//    Route::get('/customers', [\App\Http\Controllers\AdminController::class, 'customers'])->name('dashboard.customers');
     Route::get('/customers', [\App\Http\Controllers\AdminController::class, 'customers'])->name('Admin.customers');
     Route::delete('/fields/{id}', [\App\Http\Controllers\FieldController::class, 'destroy'])->name('fields.destroy');
     Route::get('/fields/{field}/edit', [\App\Http\Controllers\FieldController::class, 'edit'])->name('fields.edit');
     Route::put('/fields/{field}/edit', [\App\Http\Controllers\FieldController::class, 'update'])->name('fields.update');
+//    Route::get('/order', [\App\Http\Controllers\OrderController::class, 'index'])->name('dashboard.orders');
     Route::get('/order', [\App\Http\Controllers\OrderController::class, 'index'])->name('Admin.orders');
+    Route::get('/admin/create', [\App\Http\Controllers\AdminController::class, 'create'])->name('admin.create');
+    Route::post('/admin/store', [\App\Http\Controllers\AdminController::class, 'store'])->name('admin.store');
 
 });
+Route::middleware('loginAdmin')->prefix('/admin')->group(function () {
+    Route::get('/', [\App\Http\Controllers\AdminController::class, 'index'])->name('admin.index');
+});
+Route::middleware('loginCustomer')->prefix('/customer')->group(function () {
+    Route::get('/', [\App\Http\Controllers\CustomerController::class, 'index'])->name('Customer.index');
+});
+
+Route::get('form', [\App\Http\Controllers\FieldTypeController::class, 'showTypes']);
+Route::post('/showFieldsInTypes', [\App\Http\Controllers\FieldController::class, 'showFieldsInTypes']);

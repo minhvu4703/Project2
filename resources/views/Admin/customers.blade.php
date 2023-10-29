@@ -17,38 +17,39 @@
     <link rel="icon" type="image/x-icon" href="../../resources/Images/Vit.png">
     <title>Trang quản trị - Quản lý người dùng</title>
     <link rel="stylesheet" href="../../resources/css/intro.css">
+    <link rel="stylesheet" href="../../resources/css/sidebar.css">
 </head>
 <body>
 <div id="intro" class="bg-image">
     <div class="mask">
         <div class="d-flex flex-nowrap">
             <div
-                class="d-flex flex-column flex-shrink-0 bg-success bg-opacity-75 bg-gradient border-end border-black border-1 ps-2">
-                <a href="{{ route('Customer.index') }}" class="link-dark" style="width: 83px">
-                    <img src="../../resources/Images/Vit.png" style="width: 100%">
+                id="sidebar" class="d-flex flex-column flex-shrink-0 bg-success bg-opacity-75 bg-gradient border-end border-black border-1 ps-2">
+                <a href="{{ route('Customer.index') }}" class="link-dark border-bottom border-white border-5" style="width: 83px">
+                    <img src="../../resources/Images/admin.png" style="width: 100%">
                 </a>
                 <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
-                    <li class="nav-item">
-                        <a href="{{ route('Admin.index') }}" class="nav-link py-3 border-bottom border-black border-2"
+                    <li class="nav-item" style="margin-bottom: 20px; margin-top: 20px">
+                        <a href="{{ route('Admin.index') }}" class=""
                            style="width: 83px">
-                            <img src="../../resources/Images/bar-graph.png" style="width: 24px; height: 24px">
+                            <img src="../../resources/Images/analytics.png" style="width: 50px; height: 50px">
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a href="{{ route('fields.index') }}" class="nav-link py-3 border-bottom border-black border-2"
+                    <li class="nav-item" style="margin-bottom: 20px; margin-top: 20px">
+                        <a href="{{ route('fields.index') }}" class=""
                            style="width: 83px">
-                            <img src="../../resources/Images/72.png" style="width: 24px; height: 24px">
+                            <img src="../../resources/Images/pitch.png" style="width: 50px; height: 50px">
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link py-3 bg-info border-bottom border-black border-2"
+                    <li class="nav-item bg-info border border-white border-1s" style="margin-bottom: 20px; margin-top: 20px">
+                        <a href="#" class=""
                            style="width: 83px">
-                            <img src="../../resources/Images/end-user.png" style="width: 24px; height: 24px">
+                            <img src="../../resources/Images/end-user.png" style="width: 50px; height: 50px">
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link py-3 border-bottom border-black border-2" style="width: 83px">
-                            <img src="../../resources/Images/clipboard.png" style="width: 24px; height: 24px">
+                    <li class="nav-item" style="margin-bottom: 20px; margin-top: 20px">
+                        <a href="#" class="" style="width: 83px">
+                            <img src="../../resources/Images/clipboard.png" style="width: 50px; height: 50px">
                         </a>
                     </li>
                 </ul>
