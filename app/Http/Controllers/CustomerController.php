@@ -50,15 +50,14 @@ class CustomerController extends Controller
      */
     public function store(StoreCustomerRequest $request)
     {
-        $password = bcrypt($request->password);
         $array = [];
         $array = Arr::add($array, 'email', $request->email);
         $array = Arr::add($array, 'address', $request->address);
         $array = Arr::add($array, 'phonenumber', $request->phonenumber);
         $array = Arr::add($array, 'name', $request->name);
-        $array = Arr::add($array, 'password', $password);
+        $array = Arr::add($array, 'password', $request->password);
         Customer::create($array);
-        return Redirect::route('Customer.login');
+        return Redirect::route('customers.login');
     }
 
     /**
@@ -117,24 +116,23 @@ class CustomerController extends Controller
         $del_cust->destroyCustomer();
         return Redirect::route('Customer.index');
     }
-
-    // Function login
-    public function login() {
-        return view('Customer.login');
-    }
-
-    public function loginProcess(\Illuminate\Http\Request $request) {
-        $account = $request->only(['email', 'password']);
-//        dd($account);
-        if(Auth::guard('customers')->attempt($account)) {
-            $customers = Auth::guard('customers')->user();
-            Auth::guard('customers')->login($customers);
-            session(['customers' => $customers]);
-
-            return Redirect::route('Customer.index');
-        } else {
-
-            return Redirect::back();
-        }
-    }
+//
+//    public function login() {
+//        return view('customers.login');
+//    }
+//    public function loginProcess(\Illuminate\Http\Request $request) {
+//        $account = $request->only('email', 'password');
+//        // Xác thực đăng nhập
+//        if (Auth::guard('customers')->attempt($account)) {
+//            // Cho login
+//            // Lấy thông tin customers
+//            $customers = Auth::guard('customers')->user();
+//            Auth::login($customers);
+//            session(['customers' => $customers]);
+//            return Redirect::route('customers.index');
+//        } else {
+//            // Quay về trang login
+//            return Redirect::back();
+//        }
+//    }
 }
