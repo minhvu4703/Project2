@@ -21,6 +21,10 @@ Route::prefix('/customer')->group(function () {
     Route::get('/', [\App\Http\Controllers\CustomerController::class, 'index'])->name('Customer.index');
     Route::get('/orders', [\App\Http\Controllers\CustomerController::class, 'order'])->name('Customer.orders');
     Route::get('/contact', [\App\Http\Controllers\CustomerController::class, 'contact'])->name('Customer.contact');
+    Route::get('/login', [\App\Http\Controllers\CustomerController::class, 'login'])->name('customers.login');
+    Route::post('/loginProcess', [\App\Http\Controllers\CustomerController::class, 'loginProcess'])->name('customers.loginProcess');
+    Route::get('/register', [\App\Http\Controllers\CustomerController::class, 'create'])->name('customers.register');
+    Route::post('/register', [\App\Http\Controllers\CustomerController::class, 'store'])->name('customers.store');
 });
 
 Route::prefix('/admin')->group(function (){
@@ -35,3 +39,5 @@ Route::prefix('/admin')->group(function (){
     Route::get('/order', [\App\Http\Controllers\OrderController::class, 'index'])->name('Admin.orders');
 
 });
+Route::get('/login', [\App\Http\Controllers\AdminController::class, 'login'])->name('dashboard.login');
+Route::post('/loginProcess', [\App\Http\Controllers\AdminController::class, 'loginProcess'])->name('dashboard.loginProcess');
