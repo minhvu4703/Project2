@@ -121,7 +121,7 @@ class AdminController extends Controller
         return view('dashboard.login');
     }
 
-    public function loginProcess(\Illuminate\Http\Request $request) {
+    public function loginProcess(Request $request) {
         $account = $request->only(['email', 'password']);
 //        $check = Auth::guard('admins')->attempt($account);
 //        dd($check);
