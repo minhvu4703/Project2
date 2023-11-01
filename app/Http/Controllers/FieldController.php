@@ -23,7 +23,7 @@ class FieldController extends Controller
     public function index()
     {
         $fields = Field::with('types')->simplePaginate(5);
-        return view('fields.index', ['fields' => $fields]);
+        return view('Fields.index', ['fields' => $fields]);
     }
 
     /**
@@ -36,7 +36,7 @@ class FieldController extends Controller
     public function create()
     {
         $field_types = FieldType::all();
-        return view('fields.create', [
+        return view('Fields.create', [
             'field_types' => $field_types,
         ]);
     }
@@ -61,7 +61,7 @@ class FieldController extends Controller
         $array = Arr::add($array, 'description', $request->description);
         $array = Arr::add($array, 'type_id', $request->type_id);
         Field::create($array);
-        return Redirect::route('fields.index');
+        return Redirect::route('Fields.index');
     }
 
     /**
@@ -86,7 +86,7 @@ class FieldController extends Controller
     public function edit(Field $field, Request $request)
     {
         $types = FieldType::all();
-        return view('fields.edit', [
+        return view('Fields.edit', [
             'fields' => $field,
             'field_types' => $types,
         ]);
@@ -113,7 +113,7 @@ class FieldController extends Controller
         $array = Arr::add($array, 'description', $request->description);
         $array = Arr::add($array, 'type_id', $request->type_id);
         $field->update($array);
-        return Redirect::route('fields.index');
+        return Redirect::route('Fields.index');
     }
 
     /**
@@ -129,6 +129,6 @@ class FieldController extends Controller
         $del_field = new Field();
         $del_field->id = $request->id;
         $del_field->destroyField();
-        return Redirect::route('fields.index');
+        return Redirect::route('Fields.index');
     }
 }

@@ -14,63 +14,95 @@
         rel="stylesheet"
     />
     <script src="https://kit.fontawesome.com/dfb2727f7d.js" crossorigin="anonymous"></script>
-    <link rel="icon" type="image/x-icon" href="../../../../resources/Images/ava-web.png">
+    <link rel="icon" type="image/x-icon" href="../../../../resources/Images/Vit.png">
+    <link rel="stylesheet" href="../../../../resources/css/intro.css">
     <title>Trang quản trị - Quản lý sân</title>
 
 </head>
-<body style="background-color: whitesmoke">
+<body>
+<div id="intro" class="bg-image">
 <div class="d-flex flex-nowrap">
-    <div class="d-flex flex-column flex-shrink-0 bg-success bg-gradient border-end border-black border-1 ps-2">
-        <a href="{{ route('customers.index') }}" class="link-dark" style="width: 83px">
-            <img src="../../../../resources/Images/ava-web.png" style="width: 100%">
+    {{-- SideBar --}}
+    <div
+        class="d-flex flex-column flex-shrink-0 bg-success bg-gradient bg-opacity-75 border-end border-white border-1 ps-2">
+        <a href="{{ route('customers.index') }}" class="link-dark border-bottom border-white border-1"
+           style="width: 83px">
+            <img src="../../../../resources/Images/admin.png" style="width: 100%">
         </a>
-        <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
-            <li class="nav-item">
-                <a href="{{ route('admin.index') }}" class="nav-link py-3 border-bottom border-black border-2" style="width: 83px">
-                    <img src="../../../../resources/Images/bar-chart.png" style="width: 24px; height: 24px">
+        <ul class=" nav nav-pills nav-flush flex-column mb-auto text-center">
+            <li class="nav-item" style="margin-bottom: 20px; margin-top: 20px">
+                <a href="{{ route('dashboard.index') }}" class=""
+                   style="width: 83px">
+                    <img src="../../../../resources/Images/analytics.png" style="width: 50px; height: 50px">
                 </a>
             </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link py-3 bg-warning border-bottom border-black border-2" style="width: 83px">
-                    <img src="../../../../resources/Images/football-field.png" style="width: 24px; height: 24px">
+            <li class="nav-item bg-info border border-white border-1" style="margin-bottom: 20px; margin-top: 20px">
+                <a href="{{ route('Fields.index') }}" class=""
+                   style="width: 83px">
+                    <img src="../../../../resources/Images/pitch.png" style="width: 50px; height: 50px">
                 </a>
             </li>
-            <li class="nav-item">
-                <a href="{{ route('admin.customers') }}" class="nav-link py-3 border-bottom border-black border-2" style="width: 83px">
-                    <img src="../../../../resources/Images/customer.png" style="width: 24px; height: 24px">
+            <li class="nav-item" style="margin-bottom: 20px; margin-top: 20px">
+                {{-- {{ route('Field_types.index') }} --}}
+                <a href="" class=""
+                   style="width: 83px">
+                    <img src="../../../../resources/Images/lineup.png" style="width: 50px; height: 50px">
                 </a>
             </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link py-3 border-bottom border-black border-2" style="width: 83px">
-                    <img src="../../../../resources/Images/clipboard.png" style="width: 24px; height: 24px">
+            <li class="nav-item" style="margin-bottom: 20px; margin-top: 20px">
+                <a href="{{ route('dashboard.customers') }}"
+                   class="" style="width: 83px">
+                    <img src="../../../../resources/Images/user.png" style="width: 50px; height: 50px">
+                </a>
+            </li>
+            <li class="nav-item" style="margin-bottom: 20px; margin-top: 20px">
+                <a href="{{ route('dashboard.orders') }}" class=""
+                   style="width: 83px">
+                    <img src="../../../../resources/Images/clipboard.png" style="width: 50px; height: 50px">
+                </a>
+            </li>
+            <li class="nav-item" style="margin-bottom: 20px; margin-top: 20px">
+                {{-- {{ route('times.index') }} --}}
+                <a href="" class=""
+                   style="width: 83px">
+                    <img src="../../../../resources/Images/timetable.png" style="width: 50px; height: 50px">
+                </a>
+            </li>
+            <li class="nav-item" style="margin-bottom: 20px; margin-top: 20px">
+                <a href="{{ route('admin.index') }}" class=""
+                   style="width: 83px">
+                    <img src="../../../../resources/Images/controller.png" style="width: 50px; height: 50px">
                 </a>
             </li>
         </ul>
         <div class="dropup border-top">
             <a href="#" class="d-flex align-items-center justify-content-center p-3 link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="../../../../resources/Images/ava-web.png" alt="Admin" width="42" height="42" class="rounded-circle">
+                <img src="../../../../resources/Images/Vit.png" alt="Admin" width="42" height="42" class="rounded-circle">
             </a>
             <ul class="dropdown-menu text-small shadow">
                 <li>
-                    <a class="dropdown-item" href="#" >Đăng xuất</a>
+                    <a class="dropdown-item" href="#">Đăng xuất</a>
                 </li>
             </ul>
         </div>
     </div>
+    {{-- End SideBar --}}
     <div class="col col-11 ps-3">
         <nav aria-label="breadcrumb">
+            <div style="background-color: white">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ route('customers.index') }}">Trang chủ</a></li>
-                <li class="breadcrumb-item"><a href="{{ route('fields.index') }}">Quản lý sân</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('Fields.index') }}">Quản lý sân</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Sửa sân</li>
             </ol>
+            </div>
         </nav>
         <div>
-            <h1 class="text-success mt-4" style="font-family: 'Segoe UI Black'; font-size: xxx-large">SỬA SÂN</h1>
+            <h1 class="text-white mt-4 border-bottom border-white border-4 my-4" style="font-family: 'Segoe UI Black'; font-size: xxx-large; text-align: center">SỬA SÂN</h1>
         </div>
-        <div class="border-top border-success border-4 my-4">
-            {{--            Nhập dữ liệu vào đây đi tk loz--}}
-            <form method="post" action="{{ route('fields.update', $fields) }}" enctype="multipart/form-data">
+        <div class="">
+            {{-- {{ route('Fields.update', $fields) }} --}}
+            <form method="post" action="" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="row">
@@ -92,7 +124,7 @@
                             @endforeach
                         </div>
                     </div>
-                    <div class="col-5 mx-3 my-3">
+                    <div class="col-5 mx-3 my-3" style="background-color: white">
                         Chọn ảnh sân: <input type="file" accept="image/*" name="image" id="file" onchange="loadFile(event)">
                         <img src="{{ asset(\Illuminate\Support\Facades\Storage::url('admin/img/').$fields->image) }}" class="mt-1" id="output" width="500">
                     </div>
@@ -102,7 +134,7 @@
         </div>
     </div>
 </div>
-
+</div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script>
     var loadFile = function(event) {

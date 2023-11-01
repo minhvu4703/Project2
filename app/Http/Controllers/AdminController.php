@@ -78,7 +78,7 @@ class AdminController extends Controller
         $array = Arr::add($array, 'name', $request->name);
         $array = Arr::add($array, 'password', $password);
         Admin::create($array);
-        return Redirect::route('Admin.index');
+        return Redirect::route('admin.index');
     }
 
     /**
@@ -119,9 +119,10 @@ class AdminController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Admin  $admin
+     * @param $request
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Admin $admin)
+    public function destroy(Admin $admin, $request)
     {
         //
         $del_ad = new Admin();

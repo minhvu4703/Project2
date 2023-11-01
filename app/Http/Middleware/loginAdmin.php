@@ -19,7 +19,7 @@ class loginAdmin
         if (session()->has('admins')) {
             return $next($request);
         } else {
-            return Redirect::route('Admin.login');
+            return Redirect::route('admin.login');
         }
     }
 }

@@ -29,8 +29,8 @@ Route::prefix('/dashboard')->group(function (){
     Route::post('/loginProcess', [\App\Http\Controllers\AdminController::class, 'loginProcess'])->name('dashboard.loginProcess');
 });
 
-//
-Route::middleware('loginCustomer')->prefix('/customers')->group(function (){
+//middleware('loginCustomer')->
+Route::prefix('/customers')->group(function (){
     Route::get('/', [\App\Http\Controllers\CustomerController::class, 'index'])->name('customers.index');
     Route::get('/orders', [\App\Http\Controllers\CustomerController::class, 'order'])->name('customers.orders');
     Route::get('/history', [\App\Http\Controllers\CustomerController::class, 'history'])->name('customers.history');
@@ -38,7 +38,7 @@ Route::middleware('loginCustomer')->prefix('/customers')->group(function (){
 });
 
 //middleware('loginAdmin')->
-Route::middleware('loginAdmin')->prefix('/dashboard')->group(function (){
+Route::prefix('/dashboard')->group(function (){
     Route::get('/', [\App\Http\Controllers\AdminController::class, 'dashboard'])->name('dashboard.index');
     Route::get('/fields',[\App\Http\Controllers\FieldController::class, 'index'])->name('Fields.index');
     Route::get('/fields/create', [\App\Http\Controllers\FieldController::class, 'create'])->name('Fields.create');
@@ -51,9 +51,9 @@ Route::middleware('loginAdmin')->prefix('/dashboard')->group(function (){
     Route::put('/order/{order}/update', [\App\Http\Controllers\OrderDetailController::class, 'update'])->name('Orders.update');
     Route::get('/field_types', [\App\Http\Controllers\FieldTypeController::class, 'index'])->name('field_types.index');
     Route::get('/times', [\App\Http\Controllers\TimeController::class, 'index'])->name('times.index');
-    Route::get('/admin', [\App\Http\Controllers\AdminController::class, 'index'])->name('Admin.index');
-    Route::get('/admin/create', [\App\Http\Controllers\AdminController::class, 'create'])->name('Admin.create');
-    Route::post('/admin/store', [\App\Http\Controllers\AdminController::class, 'store'])->name('Admin.store');
-    Route::delete('/admin/{id}', [\App\Http\Controllers\AdminController::class, 'destroy'])->name('Admin.destroy');
+    Route::get('/admin', [\App\Http\Controllers\AdminController::class, 'index'])->name('admin.index');
+    Route::get('/admin/create', [\App\Http\Controllers\AdminController::class, 'create'])->name('admin.create');
+    Route::post('/admin/store', [\App\Http\Controllers\AdminController::class, 'store'])->name('admin.store');
+    Route::delete('/admin/{id}', [\App\Http\Controllers\AdminController::class, 'destroy'])->name('admin.destroy');
     Route::get('/logout', [\App\Http\Controllers\AdminController::class, 'logout'])->name('dashboard.logout');
 });
