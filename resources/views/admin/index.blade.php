@@ -29,55 +29,60 @@
                 <img src="../../resources/Images/admin.png" style="width: 100%">
             </a>
             <ul class=" nav nav-pills nav-flush flex-column mb-auto text-center">
+                {{-- Thống kê --}}
                 <li class="nav-item" style="margin-bottom: 20px; margin-top: 20px">
                     <a href="{{ route('dashboard.index') }}" class=""
                        style="width: 83px">
                         <img src="../../resources/Images/analytics.png" style="width: 50px; height: 50px">
                     </a>
                 </li>
+                {{-- Sân --}}
                 <li class="nav-item" style="margin-bottom: 20px; margin-top: 20px">
                     <a href="{{ route('Fields.index') }}" class=""
                        style="width: 83px">
                         <img src="../../resources/Images/pitch.png" style="width: 50px; height: 50px">
                     </a>
                 </li>
+                {{-- loại sân --}}
                 <li class="nav-item" style="margin-bottom: 20px; margin-top: 20px">
                     {{-- {{ route('Field_types.index') }} --}}
-                    <a href="" class=""
+                    <a href="{{ route('field_types.index') }}" class=""
                        style="width: 83px">
                         <img src="../../resources/Images/lineup.png" style="width: 50px; height: 50px">
                     </a>
                 </li>
+                {{-- QL khách --}}
                 <li class="nav-item" style="margin-bottom: 20px; margin-top: 20px">
                     <a href="{{ route('dashboard.customers') }}"
                        class="" style="width: 83px">
                         <img src="../../resources/Images/user.png" style="width: 50px; height: 50px">
                     </a>
                 </li>
+                {{-- Clipboard --}}
                 <li class="nav-item" style="margin-bottom: 20px; margin-top: 20px">
                     <a href="{{ route('dashboard.orders') }}" class=""
                        style="width: 83px">
                         <img src="../../resources/Images/clipboard.png" style="width: 50px; height: 50px">
                     </a>
                 </li>
+                {{-- Khung giờ --}}
                 <li class="nav-item" style="margin-bottom: 20px; margin-top: 20px">
                     {{-- {{ route('times.index') }} --}}
-                    <a href="" class=""
+                    <a href="{{ route('times.index') }}" class=""
                        style="width: 83px">
                         <img src="../../resources/Images/timetable.png" style="width: 50px; height: 50px">
                     </a>
                 </li>
+                {{-- QL --}}
                 <li class="nav-item bg-info border border-white border-1" style="margin-bottom: 20px; margin-top: 20px">
-                    <a href="#" class=""
+                    <a href="{{ route('admin.index') }}" class=""
                        style="width: 83px">
                         <img src="../../resources/Images/controller.png" style="width: 50px; height: 50px">
                     </a>
                 </li>
             </ul>
             <div class="dropup border-top">
-                <a href="#"
-                   class="d-flex align-items-center justify-content-center p-3 link-dark text-decoration-none dropdown-toggle"
-                   data-bs-toggle="dropdown" aria-expanded="false">
+                <a href="#" class="d-flex align-items-center justify-content-center p-3 link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                     <img src="../../resources/Images/Vit.png" alt="Admin" width="42" height="42" class="rounded-circle">
                 </a>
                 <ul class="dropdown-menu text-small shadow">

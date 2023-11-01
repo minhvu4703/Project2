@@ -20,7 +20,11 @@ class FieldTypeController extends Controller
     public function index()
     {
         $field_types = FieldType::all();
-        return view('types.index', ['field_types' => $field_types]);
+        $fields = Field::all();
+        return view('field_types.index', [
+            'field_types' => $field_types,
+            'fields' => $fields,
+        ]);
     }
 
     /**

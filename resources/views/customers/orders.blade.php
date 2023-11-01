@@ -19,7 +19,8 @@
         <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom" style="background-color:green">
             <div class="container-fluid">
                 <a class="navbar-brand" href="{{ route('customers.index') }}"><img
-                        src="../../resources/Images/Vit.png" alt="" height=10% width=10%>SigmaDuck - Cho thuê Sân Bóng đá</a>
+                        src="../../resources/Images/Vit.png" alt="" height=10% width=10%>SigmaDuck - Cho thuê Sân Bóng
+                    đá</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -27,15 +28,16 @@
                 </button>
                 <div class="offset-md-5 collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-2">
-{{--                        <li class="nav-item">--}}
-{{--                            <a class="nav-link text-white" aria-current="page" href="{{ route('customers.index') }}">Trang chủ</a>--}}
-{{--                        </li>--}}
-{{--                        <li class="nav-item">--}}
-{{--                            <a class="nav-link active" href="#">Đặt sân</a>--}}
-{{--                        </li>--}}
-{{--                        <li class="nav-item">--}}
-{{--                            <a class="nav-link text-white" href="{{ route('customers.contact') }}">Liên hệ</a>--}}
-{{--                        </li>--}}
+                        <li class="nav-item">
+                            <a class="nav-link text-white" aria-current="page" href="{{ route('customers.index') }}">Trang
+                                chủ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">Đặt sân</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="{{ route('customers.history') }}">Lịch sử</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -79,52 +81,70 @@
                     </button>
                 </div>
             </div>
+            {{-- Main --}}
             <div class="row">
-            <div class="row mt-1" style="margin-bottom: 50px; margin-top: 50px">
-                <b class="text-white bg-success" style="font-size: x-large; text-align: center">ĐẶT SÂN</b>
+                <div class="row mt-2 mb-2 me-1" style="background-color: green">
+                    <b class="text-white" style="font-size: x-large; text-align: center">ĐẶT SÂN</b>
+                </div>
+                <form class="needs-validation" action="" method="post" novalidate>
+                    <div class="row py-2">
+                        <div class="col-6">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="floatingName" placeholder="Họ tên"
+                                       value="" required>
+                                <label for="floatingName" class="form-label">Họ tên</label>
+                                <div class="invalid-feedback">Ô này không được để trống</div>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="floatingNumber"
+                                       placeholder="Số điện thoại" required>
+                                <label for="floatingNumber" class="form-label">Số điện thoại</label>
+                                <div class="invalid-feedback">Ô này không được để trống</div>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input placeholder="Select date" class="form-control" type="date" name="date" id="date"
+                                       placeholder="Ngày đặt sân" required>
+                                <label for="Date" class="form-label">Ngày đặt sân</label>
+                                <div class="invalid-feedback">Ô này không được để trống</div>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <select class="form-select" name="times" id="times" required>
+
+                                    {{--                                    @foreach($times as $items)--}}
+                                    {{--                                            <option value="{{ $items -> id }}">{{ $items -> timeStart }} - {{ $items -> timeEnd }}</option>--}}
+                                    {{--                                        @endforeach--}}
+                                </select>
+                                <label for="TimeEnd">Khung giờ</label>
+                                <div class="invalid-feedback">Ô này không được để trống</div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-floating mb-3">
+                                <select class="form-select" id="types" required>
+                                    <option value="" selected>Chọn loại sân</option>
+
+                                    @foreach($types as $items)
+                                        <option id="type{{$items->id}}"
+                                                value="{{ $items -> id }}">{{ $items -> type }}</option>
+                                    @endforeach
+                                </select>
+                                <label for="types">Loại sân</label>
+                                <div class="invalid-feedback">Ô này không được để trống</div>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <select class="form-select" name="fields" id="fields" onchange="" required>
+                                </select>
+                                <label for="fields">Sân</label>
+                                <div class="invalid-feedback">Ô này không được để trống</div>
+                            </div>
+                        </div>
+                        <btn class="d-flex d-flex justify-content-evenly my-2" style="align-content: center">
+                            <input type="button" id="btn" class="btn btn-success" value="Đặt sân"/>
+                        </btn>
+                    </div>
+                </form>
             </div>
-            <div class="d-flex d-flex justify-content-evenly my-2" style="align-content: center">
-                    <form class="col-4" action="" method="post">
-                        <div class="form-floating mb-5">
-                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                            <label for="floatingInput" style="text-align: center">Email</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="floatingName" placeholder="Họ tên">
-                            <label for="floatingName" style="text-align: center">Mật Khẩu</label>
-                        </div>
-                    </form>
-                    <form class="col-4" action="" method="post">
-                        <div class="form-floating mb-5">
-                            <input placeholder="Select date" class="form-control" type="date" id="Date"
-                                   placeholder="Ngày đặt">
-                            <label for="Date" style="text-align: center">Ngày đặt sân</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input placeholder="Select tim" class="form-control" type="time" id="TimeOp"
-                                   placeholder="Giờ bắt đầu - kết thúc">
-                            <label for="TimeOp" style="text-align: center">Giờ bắt đầu - Kết Thúc</label>
-                            <input placeholder="Select date" class="form-control" type="time" id="TimeEn"
-                                   placeholder="Giờ kết thúc">
-{{--                            <label for="TimeEn">Giờ kết thúc</label>--}}
-                        </div>
-{{--                        <div class="form-floating mb-3">--}}
-{{--                            <input placeholder="Select date" class="form-control" type="time" id="TimeEn"--}}
-{{--                                   placeholder="Giờ kết thúc">--}}
-{{--                            <label for="TimeEn">Giờ kết thúc</label>--}}
-{{--                        </div>--}}
-                    </form>
-            </div>
-                <btn class="d-flex d-flex justify-content-evenly my-2" style="align-content: center">
-                    <input type="button" id="btn" class="btn btn-warning" value="Đặt sân"/>
-                    <script language="javascript">
-                        var button = document.getElementById("btn");
-                        button.onclick = function(){
-                            alert("Bạn đã đặt sân thành công");
-                        }
-                    </script>
-                </btn>
-            </div>
+            {{-- End Main --}}
         </div>
     </div>
 </div>

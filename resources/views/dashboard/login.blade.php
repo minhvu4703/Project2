@@ -13,7 +13,6 @@
 </head>
 <body>
 <div id="intro" class="bg-image">
-
         <div class="container text-center">
             <div class="row" style="height: 750px">
                 <div class="col align-self-center">

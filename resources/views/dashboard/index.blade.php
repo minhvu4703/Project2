@@ -15,103 +15,139 @@
     <link rel="stylesheet" href="../resources/css/sidebar.css">
 </head>
 <div id="intro" class="bg-image">
-<div class="mask">
-
-        <div class="row">
-            {{--    Sidebar    --}}
-            <div class="d-flex flex-nowrap">
-
-                <!--Sidebar -->
-                <div
-                    id="sidebar" class="d-flex flex-column flex-shrink-0 bg-success bg-opacity-75 bg-gradient border border-white border-1 ps-2">
-                    <a href="{{ route('dashboard.index') }}" class="link-dark border-bottom border-white border-5" style="width: 83px">
-                        <img src="../resources/Images/admin.png" style="width: 100%">
-                    </a>
-                    <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
-                        <li class="nav-item bg-info border border-white border-1" style="margin-bottom: 20px; margin-top: 20px">
-                            <a href="#" class="" style="width: 83px">
-                                <img src="../resources/Images/analytics.png" style="width: 50px; height: 50px">
-                            </a>
-                        </li>
-                        <li class="nav-item" style="margin-bottom: 20px; margin-top: 20px">
-                            <a href="{{ route('Fields.index') }}" class="" style="width: 83px">
-                                <img src="../resources/Images/pitch.png" style="width: 50px; height: 50px">
-                            </a>
-                        </li>
-                        <li class="nav-item" style="margin-bottom: 20px; margin-top: 20px">
-                            <a href="{{ route('dashboard.customers') }}" class="" style="width: 83px">
-                                <img src="../resources/Images/end-user.png" style="width: 50px; height: 50px">
-                            </a>
-                        </li>
-                        <li class="nav-item" style="margin-bottom: 20px; margin-top: 20px">
-                            <a href="#" class="" style="width: 83px">
-                            {{-- {{ route('dashboard.orders') }} --}}
-                                <img src="../resources/Images/clipboard.png" style="width: 50px; height: 50px">
-                            </a>
-                        </li>
-                    </ul>
-                    <div class="dropup border-top">
-                        <a href="#"
-                           class="d-flex align-items-center justify-content-center p-3 link-dark text-decoration-none dropdown-toggle"
-                           data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="../resources/Images/Vit.png" alt="Admin" width="42" height="42"
-                                 class="rounded-circle">
+    <div class="row">
+        <div class="d-flex flex-nowrap">
+            {{-- SideBar --}}
+            <div
+                class="d-flex flex-column flex-shrink-0 bg-success bg-gradient bg-opacity-75 border-end border-black border-1 ps-2">
+                <a href="{{ route('customers.index') }}" class="link-dark border-bottom border-white border-1"
+                   style="width: 83px">
+                    <img src="../resources/Images/admin.png" style="width: 100%">
+                </a>
+                <ul class=" nav nav-pills nav-flush flex-column mb-auto text-center">
+                    {{-- Thống kê --}}
+                    <li class="nav-item bg-info border border-white border-1" style="margin-bottom: 20px; margin-top: 20px">
+                        <a href="{{ route('dashboard.index') }}" class=""
+                           style="width: 83px">
+                            <img src="../resources/Images/analytics.png" style="width: 50px; height: 50px">
                         </a>
-                        <ul class="dropdown-menu text-small shadow">
-                            <li>
-                                <a class="dropdown-item" href="#">Đăng xuất</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                {{--    End Sidebar    --}}
-                <div class="col col-11 ps-3">
-                    <div class=" bg-opacity-50 " style="background-color: white ">
-                        <p><a href="{{route('customers.index')}}" class="link-primary">Trang chủ</a> / <a href="#" class="link-secondary" aria-disabled="true">Thống kê</a></p>
-                    </div>
-                    <div>
-                        <h1 class="text-white border-bottom mt-4" style="font-family: 'system-ui'; font-size: xxx-large ; text-align: center">THỐNG KÊ</h1>
-                    </div>
-                    <ul class="list-group list-group-flush my-4">
-                        <li class="list-group-item d-flex justify-content-between align-items-start mt-4">
-                            <div class="ms-2 me-auto">
-                                <div class="fw-bold">Sân 7</div>Số lượng sân 7
-
-                            </div>
-                            <span class="fs-1">{{$fieldCount}} <img src="../resources/Images/field 7.png" width="50px" height="50px" ></span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-start mt-4">
-                            <div class="ms-2 me-auto">
-                                <div class="fw-bold">Sân 11</div>Số lượng sân 11
-                            </div>
-                            <span class="fs-1">{{$fieldCount}} <img src="../resources/Images/field 11.png" width="50px" height="50px" ></span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-start mt-4">
-                            <div class="ms-2 me-auto">
-                                <div class="fw-bold">Người dùng</div>Số lượng người dùng đã đăng ký
-                            </div>
-                            <span class="fs-1">{{$custCount}} <img src="../resources/Images/user.png" width="50px" height="50px" ></span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-start mt-4">
-                            <div class="ms-2 me-auto">
-                                <div class="fw-bold">Nhân viên</div>Số lượng nhân viên
-                            </div>
-                            <span class="fs-1">{{ $adCount }} <img src="../resources/Images/customer-service.png" width="50px" height="50px" ></span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-start mt-4">
-                            <div class="ms-2 me-auto">
-                                <div class="fw-bold">Đặt sân</div>Số lượng đơn đặt sân
-                            </div>
-                            <span class="fs-1">{{ $ordCount }} <img src="../resources/Images/shopping-cart.png" width="50px" height="50px" ></span>
+                    </li>
+                    {{-- Sân --}}
+                    <li class="nav-item" style="margin-bottom: 20px; margin-top: 20px">
+                        <a href="{{ route('Fields.index') }}" class=""
+                           style="width: 83px">
+                            <img src="../resources/Images/pitch.png" style="width: 50px; height: 50px">
+                        </a>
+                    </li>
+                    {{-- loại sân --}}
+                    <li class="nav-item" style="margin-bottom: 20px; margin-top: 20px">
+                        {{-- {{ route('Field_types.index') }} --}}
+                        <a href="{{ route('field_types.index') }}" class=""
+                           style="width: 83px">
+                            <img src="../resources/Images/lineup.png" style="width: 50px; height: 50px">
+                        </a>
+                    </li>
+                    {{-- QL khách --}}
+                    <li class="nav-item" style="margin-bottom: 20px; margin-top: 20px">
+                        <a href="{{ route('dashboard.customers') }}"
+                           class="" style="width: 83px">
+                            <img src="../resources/Images/user.png" style="width: 50px; height: 50px">
+                        </a>
+                    </li>
+                    {{-- Clipboard --}}
+                    <li class="nav-item" style="margin-bottom: 20px; margin-top: 20px">
+                        <a href="{{ route('dashboard.orders') }}" class=""
+                           style="width: 83px">
+                            <img src="../resources/Images/clipboard.png" style="width: 50px; height: 50px">
+                        </a>
+                    </li>
+                    {{-- Khung giờ --}}
+                    <li class="nav-item" style="margin-bottom: 20px; margin-top: 20px">
+                        {{-- {{ route('times.index') }} --}}
+                        <a href="{{ route('times.index') }}" class=""
+                           style="width: 83px">
+                            <img src="../resources/Images/timetable.png" style="width: 50px; height: 50px">
+                        </a>
+                    </li>
+                    {{-- QL --}}
+                    <li class="nav-item" style="margin-bottom: 20px; margin-top: 20px">
+                        <a href="{{ route('admin.index') }}" class=""
+                           style="width: 83px">
+                            <img src="../resources/Images/controller.png" style="width: 50px; height: 50px">
+                        </a>
+                    </li>
+                </ul>
+                <div class="dropup border-top">
+                    <a href="#" class="d-flex align-items-center justify-content-center p-3 link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="../resources/Images/Vit.png" alt="Admin" width="42" height="42" class="rounded-circle">
+                    </a>
+                    <ul class="dropdown-menu text-small shadow">
+                        <li>
+                            <a class="dropdown-item" href="#">Đăng xuất</a>
                         </li>
                     </ul>
                 </div>
             </div>
+            {{-- End SideBar --}}
+            <div class="col col-11 ps-3">
+                <div class=" bg-opacity-50 " style="background-color: white ">
+                    <p><a href="{{route('customers.index')}}" class="link-primary">Trang chủ</a> / <a href="#"
+                                                                                                      class="link-secondary"
+                                                                                                      aria-disabled="true">Thống kê</a></p>
+                </div>
+                <div>
+                    <h1 class="text-white border-bottom mt-4"
+                        style="font-family: 'system-ui'; font-size: xxx-large ; text-align: center">THỐNG KÊ</h1>
+                </div>
+                <ul class="list-group list-group-flush my-4">
+                    <li class="list-group-item d-flex justify-content-between align-items-start mt-4">
+                        <div class="ms-2 me-auto">
+                            <div class="fw-bold">Sân 7</div>
+                            Số lượng sân 7
+
+                        </div>
+                        <span class="fs-1">{{$fieldCount}} <img src="../resources/Images/field 7.png" width="50px"
+                                                                height="50px"></span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-start mt-4">
+                        <div class="ms-2 me-auto">
+                            <div class="fw-bold">Sân 11</div>
+                            Số lượng sân 11
+                        </div>
+                        <span class="fs-1">{{$fieldCount}} <img src="../resources/Images/field 11.png" width="50px"
+                                                                height="50px"></span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-start mt-4">
+                        <div class="ms-2 me-auto">
+                            <div class="fw-bold">Người dùng</div>
+                            Số lượng người dùng đã đăng ký
+                        </div>
+                        <span class="fs-1">{{$custCount}} <img src="../resources/Images/user.png" width="50px"
+                                                               height="50px"></span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-start mt-4">
+                        <div class="ms-2 me-auto">
+                            <div class="fw-bold">Nhân viên</div>
+                            Số lượng nhân viên
+                        </div>
+                        <span class="fs-1">{{ $adCount }} <img src="../resources/Images/customer-service.png"
+                                                               width="50px" height="50px"></span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-start mt-4">
+                        <div class="ms-2 me-auto">
+                            <div class="fw-bold">Đặt sân</div>
+                            Số lượng đơn đặt sân
+                        </div>
+                        <span class="fs-1">{{ $ordCount }} <img src="../resources/Images/shopping-cart.png" width="50px"
+                                                                height="50px"></span>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-            crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
 </body>
 </html>

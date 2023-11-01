@@ -21,89 +21,118 @@
 </head>
 <body>
 <div id="intro" class="bg-image">
-    <div class="mask">
-        <div class="d-flex flex-nowrap">
-            <div
-                id="sidebar" class="d-flex flex-column flex-shrink-0 bg-success bg-opacity-75 bg-gradient border-end border-black border-1 ps-2">
-                <a href="{{ route('customers.index') }}" class="link-dark border-bottom border-white border-5" style="width: 83px">
-                    <img src="../../resources/Images/admin.png" style="width: 100%">
+    <div class="d-flex flex-nowrap">
+        {{-- SideBar --}}
+        <div
+            class="d-flex flex-column flex-shrink-0 bg-success bg-gradient bg-opacity-75 border-end border-black border-1 ps-2">
+            <a href="{{ route('customers.index') }}" class="link-dark border-bottom border-white border-1"
+               style="width: 83px">
+                <img src="../../resources/Images/admin.png" style="width: 100%">
+            </a>
+            <ul class=" nav nav-pills nav-flush flex-column mb-auto text-center">
+                {{-- Thống kê --}}
+                <li class="nav-item" style="margin-bottom: 20px; margin-top: 20px">
+                    <a href="{{ route('dashboard.index') }}" class=""
+                       style="width: 83px">
+                        <img src="../../resources/Images/analytics.png" style="width: 50px; height: 50px">
+                    </a>
+                </li>
+                {{-- Sân --}}
+                <li class="nav-item" style="margin-bottom: 20px; margin-top: 20px">
+                    <a href="{{ route('Fields.index') }}" class=""
+                       style="width: 83px">
+                        <img src="../../resources/Images/pitch.png" style="width: 50px; height: 50px">
+                    </a>
+                </li>
+                {{-- loại sân --}}
+                <li class="nav-item" style="margin-bottom: 20px; margin-top: 20px">
+                    {{-- {{ route('Field_types.index') }} --}}
+                    <a href="{{ route('field_types.index') }}" class=""
+                       style="width: 83px">
+                        <img src="../../resources/Images/lineup.png" style="width: 50px; height: 50px">
+                    </a>
+                </li>
+                {{-- QL khách --}}
+                <li class="nav-item bg-info border border-white border-1" style="margin-bottom: 20px; margin-top: 20px">
+                    <a href="{{ route('dashboard.customers') }}"
+                       class="" style="width: 83px">
+                        <img src="../../resources/Images/user.png" style="width: 50px; height: 50px">
+                    </a>
+                </li>
+                {{-- Clipboard --}}
+                <li class="nav-item" style="margin-bottom: 20px; margin-top: 20px">
+                    <a href="{{ route('dashboard.orders') }}" class=""
+                       style="width: 83px">
+                        <img src="../../resources/Images/clipboard.png" style="width: 50px; height: 50px">
+                    </a>
+                </li>
+                {{-- Khung giờ --}}
+                <li class="nav-item" style="margin-bottom: 20px; margin-top: 20px">
+                    {{-- {{ route('times.index') }} --}}
+                    <a href="{{ route('times.index') }}" class=""
+                       style="width: 83px">
+                        <img src="../../resources/Images/timetable.png" style="width: 50px; height: 50px">
+                    </a>
+                </li>
+                {{-- QL --}}
+                <li class="nav-item" style="margin-bottom: 20px; margin-top: 20px">
+                    <a href="{{ route('admin.index') }}" class=""
+                       style="width: 83px">
+                        <img src="../../resources/Images/controller.png" style="width: 50px; height: 50px">
+                    </a>
+                </li>
+            </ul>
+            <div class="dropup border-top">
+                <a href="#" class="d-flex align-items-center justify-content-center p-3 link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="../../resources/Images/Vit.png" alt="Admin" width="42" height="42" class="rounded-circle">
                 </a>
-                <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
-                    <li class="nav-item" style="margin-bottom: 20px; margin-top: 20px">
-                        <a href="{{ route('dashboard.index') }}" class=""
-                           style="width: 83px">
-                            <img src="../../resources/Images/analytics.png" style="width: 50px; height: 50px">
-                        </a>
-                    </li>
-                    <li class="nav-item" style="margin-bottom: 20px; margin-top: 20px">
-                        <a href="{{ route('Fields.index') }}" class=""
-                           style="width: 83px">
-                            <img src="../../resources/Images/pitch.png" style="width: 50px; height: 50px">
-                        </a>
-                    </li>
-                    <li class="nav-item bg-info border border-white border-1s" style="margin-bottom: 20px; margin-top: 20px">
-                        <a href="#" class=""
-                           style="width: 83px">
-                            <img src="../../resources/Images/end-user.png" style="width: 50px; height: 50px">
-                        </a>
-                    </li>
-                    <li class="nav-item" style="margin-bottom: 20px; margin-top: 20px">
-                        <a href="#" class="" style="width: 83px">
-                            <img src="../../resources/Images/clipboard.png" style="width: 50px; height: 50px">
-                        </a>
+                <ul class="dropdown-menu text-small shadow">
+                    <li>
+                        <a class="dropdown-item" href="#">Đăng xuất</a>
                     </li>
                 </ul>
-                <div class="dropup border-top">
-                    <a href="#"
-                       class="d-flex align-items-center justify-content-center p-3 link-dark text-decoration-none dropdown-toggle"
-                       data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="../../resources/Images/Vit.png" alt="Admin" width="42" height="42"
-                             class="rounded-circle">
-                    </a>
-                    <ul class="dropdown-menu text-small shadow">
-                        <li>
-                            <a class="dropdown-item" href="#">Đăng xuất</a>
-                        </li>
-                    </ul>
-                </div>
             </div>
-            <div class="col col-11 ps-3">
-                <div class="" style="background-color: white">
-                    <p><a href="{{ route('customers.index') }}" class="link-primary">Trang chủ</a> / <a href="#" class="link-secondary" aria-disabled="true">Quản lý người dùng</a></p>
-                </div>
-                <div>
-                    <h1 class="text-white mt-4" style="font-family: 'system-ui'; font-size: xxx-large ; text-align: center">QUẢN LÝ NGƯỜI DÙNG</h1>
-                </div>
-                <div class="border-top border-4 my-4">
-                    <!--            Table-->
-                    <table class="table table-info table-striped mt-4" border="1px" cellpadding="0" cellspacing="0"
-                           width="100%">
-                        <thead>
+        </div>
+        {{-- End SideBar --}}
+        <div class="col col-11 ps-3">
+            <div class="" style="background-color: white">
+                <p><a href="{{ route('customers.index') }}" class="link-primary">Trang chủ</a> / <a href="#"
+                                                                                                    class="link-secondary"
+                                                                                                    aria-disabled="true">Quản lý người dùng</a></p>
+            </div>
+            <div>
+                <h1 class="text-white mt-4 border-bottom border-4 my-4" style="font-family: 'system-ui'; font-size: xxx-large ; text-align: center">
+                    QUẢN LÝ NGƯỜI DÙNG</h1>
+            </div>
+            <div class="">
+                <!-- Table -->
+                <table class="table table-light table-striped mt-4" border="1px" cellpadding="0" cellspacing="0"
+                       width="100%">
+                    <thead>
+                    <tr>
+                        <th scope="col">ID người dùng</th>
+                        <th scope="col">Họ và tên</th>
+                        <th scope="col">Địa chỉ</th>
+                        <th scope="col">Số điện thoại</th>
+                        <th scope="col">Email</th>
+                        {{-- <th scope="col">Mật khẩu</th> --}}
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach($customers as $item)
                         <tr>
-                            <th scope="col">ID người dùng</th>
-                            <th scope="col">Họ và tên</th>
-                            <th scope="col">Địa chỉ</th>
-                            <th scope="col">Số điện thoại</th>
-                            <th scope="col">Email</th>
-{{--                            <th scope="col">Mật khẩu</th>--}}
+                            <th scope="row">{{ $item -> id }}</th>
+                            <td>{{ $item -> name }}</td>
+                            <td>{{ $item->address }}</td>
+                            <td>{{ $item->phonenumber }}</td>
+                            <td>{{ $item->email }}</td>
+                            {{-- <td>{{ $item->password }}</td> --}}
                         </tr>
-                        </thead>
-                        <tbody>
-                        @foreach($customers as $item)
-                            <tr>
-                                <th scope="row">{{ $item -> id }}</th>
-                                <td>{{ $item -> name }}</td>
-                                <td>{{ $item->address }}</td>
-                                <td>{{ $item->phonenumber }}</td>
-                                <td>{{ $item->email }}</td>
-{{--                                <td>{{ $item->password }}</td>--}}
-                            </tr>
-                        @endforeach
-                        </tbody>
+                    @endforeach
+                    </tbody>
 
-                    </table>
-                    {{ $customers->links() }}
-                </div>
+                </table>
+                {{ $customers->links() }}
             </div>
         </div>
     </div>

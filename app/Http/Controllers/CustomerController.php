@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Customer;
 use App\Http\Requests\StoreCustomerRequest;
 use App\Http\Requests\UpdateCustomerRequest;
+use App\Models\Field;
+use App\Models\FieldType;
+use App\Models\Time;
 use Illuminate\Http\Client\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
@@ -23,11 +26,18 @@ class CustomerController extends Controller
     }
 
     public function order() {
-        return view('customers.orders');
+        $times = Time::all();
+        $types = FieldType::all();
+        $fields = Field::all();
+        return view('customers.orders', [
+            'times' => $times,
+            'types' => $types,
+            'fields' => $fields
+        ]);
     }
 
-    public function contact() {
-        return view('customers.contact');
+    public function history() {
+        return view('customers.history');
     }
 
 

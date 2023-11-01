@@ -7,9 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
     <script src="https://kit.fontawesome.com/dfb2727f7d.js" crossorigin="anonymous"></script>
-    <link rel="icon" type="image/x-icon" href="../resources/Images/Vit.png">
+    <link rel="icon" type="image/x-icon" href="../../resources/Images/Vit.png">
     <title>Trang chủ - SigmaDuck</title>
-    <link rel="stylesheet" href="../resources/css/intro.css">
+    <link rel="stylesheet" href="../../resources/css/intro.css">
     <link
         rel="stylesheet"
         href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -21,8 +21,9 @@
     <div class="mask">
         <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom" style="background-color:green">
             <div class="container-fluid ">
-                <a class="navbar-brand " href="{{ route('customers.index') }}"><img src="../resources/Images/Vit.png"
-                                                                                   alt="" height=10% width=10%>SigmaDuck - Cho thuê Sân Bóng đá</a>
+                <a class="navbar-brand " href="{{ route('customers.index') }}"><img src="../../resources/Images/Vit.png"
+                                                                                    alt="" height=10% width=10%>SigmaDuck
+                    - Cho thuê Sân Bóng đá</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -31,10 +32,11 @@
                 <div class="offset-md-5 collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-2">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Trang chủ</a>
+                            <a class="nav-link text-white" aria-current="page" href="{{ route('customers.index') }}">Trang
+                                chủ</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="{{ route('customers.history') }}">Lịch sử</a>
+                            <a class="nav-link active" href="#">Lịch sử</a>
                         </li>
                     </ul>
                 </div>
@@ -50,7 +52,7 @@
                 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img height="300" src="../resources/Images/san.jpg" class="d-block w-100" alt="...">
+                            <img height="300" src="../../resources/Images/san.jpg" class="d-block w-100" alt="...">
                         </div>
                         <div class="carousel-item">
                             <img height="300"
@@ -58,7 +60,7 @@
                                  class="d-block w-100" alt="...">
                         </div>
                         <div class="carousel-item">
-                            <img height="300" src="../resources/Images/san1.jpg" class="d-block w-100" alt="...">
+                            <img height="300" src="../../resources/Images/san1.jpg" class="d-block w-100" alt="...">
                         </div>
                         <div class="carousel-item">
                             <img height="300"
@@ -78,50 +80,20 @@
                     </button>
                 </div>
             </div>
-            <!--         Card           -->
-            <div class="d-flex d-flex justify-content-evenly my-2">
-
-                <div class="card" style="width: 18rem;">
-                    <img src="../resources/Images/field1.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Sân số 1</h5>
-                        <p class="card-text"></p>
-                        <a href="{{ route('customers.orders') }}" class="btn btn-primary">Đặt sân</a>
-                    </div>
+            <!--         Main           -->
+            <div class="row">
+                <div class="row mt-1" style="margin-bottom: 50px; margin-top: 50px">
+                    <b class="text-white bg-success" style="font-size: x-large; text-align: center">LỊCH SỬ ĐẶT SÂN</b>
                 </div>
--
-                <div class="card" style="width: 18rem;">
-                    <img src="../resources/Images/field2.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Sân số 2</h5>
-                        <p class="card-text"></p>
-                        <a href="{{ route('customers.orders') }}" class="btn btn-primary">Đặt sân</a>
-                    </div>
-                </div>
-
-                <div class="card" style="width: 18rem;">
-                    <img src="../resources/Images/field3.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Sân số 3</h5>
-                        <p class="card-text"></p>
-                        <a href="{{ route('customers.orders') }}" class="btn btn-primary">Đặt sân</a>
-                    </div>
-                </div>
-
-                <div class="card" style="width: 18rem;">
-                    <img src="../resources/Images/field4.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Sân số 4</h5>
-                        <p class="card-text"></p>
-                        <a href="{{ route('customers.orders') }}" class="btn btn-primary">Đặt sân</a>
-                    </div>
+                <div class="d-flex d-flex justify-content-evenly my-2" style="align-content: center">
                 </div>
             </div>
-            {{--         End Card           --}}
+            {{--         End Main           --}}
         </div>
-        <div class="row mt-2">
-            <marquee behavior="" direction="right" scrollamount="30"> <img src="../resources/Images/mesi.png" height= 7% width= 7%></marquee>
-        </div>
+        {{--    Messi    --}}
+        {{--        <div class="row mt-2">--}}
+        {{--            <marquee behavior="" direction="right" scrollamount="30"> <img src="../../resources/Images/mesi.png" height= 7% width= 7%></marquee>--}}
+        {{--        </div>--}}
     </div>
 </div>
 <footer class="d-flex flex-warp justify-content-between align-items-center py-1"

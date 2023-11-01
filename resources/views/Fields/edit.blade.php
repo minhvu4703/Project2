@@ -44,7 +44,7 @@
             </li>
             <li class="nav-item" style="margin-bottom: 20px; margin-top: 20px">
                 {{-- {{ route('Field_types.index') }} --}}
-                <a href="" class=""
+                <a href="{{ route('field_types.index') }}" class=""
                    style="width: 83px">
                     <img src="../../../../resources/Images/lineup.png" style="width: 50px; height: 50px">
                 </a>
@@ -62,8 +62,8 @@
                 </a>
             </li>
             <li class="nav-item" style="margin-bottom: 20px; margin-top: 20px">
-                {{-- {{ route('times.index') }} --}}
-                <a href="" class=""
+                {{--  --}}
+                <a href="{{ route('times.index') }}" class=""
                    style="width: 83px">
                     <img src="../../../../resources/Images/timetable.png" style="width: 50px; height: 50px">
                 </a>
