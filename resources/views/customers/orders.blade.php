@@ -7,22 +7,19 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
     <script src="https://kit.fontawesome.com/dfb2727f7d.js" crossorigin="anonymous"></script>
-    <link rel="icon" type="image/x-icon" href="../resources/Images/Vit.png">
+    <link rel="icon" type="image/x-icon" href="../../resources/Images/Vit.png">
     <title>Trang chủ - SigmaDuck</title>
-    <link rel="stylesheet" href="../resources/css/intro.css">
-    <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/icon?family=Material+Icons"
-    />
+    <link rel="stylesheet" href="../../resources/css/intro.css">
+
 </head>
 <body>
-<!-- Navbar -->
 <div id="intro" class="bg-image">
     <div class="mask">
+        <!-- Navbar -->
         <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom" style="background-color:green">
-            <div class="container-fluid ">
-                <a class="navbar-brand " href="{{ route('Customer.index') }}"><img src="../resources/Images/Vit.png"
-                                                                                   alt="" height=10% width=10%>SigmaDuck - Cho thuê Sân Bóng đá</a>
+            <div class="container-fluid">
+                <a class="navbar-brand" href="{{ route('customers.index') }}"><img
+                        src="../../resources/Images/Vit.png" alt="" height=10% width=10%>SigmaDuck - Cho thuê Sân Bóng đá</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -31,16 +28,20 @@
                 <div class="offset-md-5 collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-2">
 {{--                        <li class="nav-item">--}}
-{{--                            <a class="nav-link active" aria-current="page" href="#">Trang chủ</a>--}}
+{{--                            <a class="nav-link text-white" aria-current="page" href="{{ route('customers.index') }}">Trang chủ</a>--}}
 {{--                        </li>--}}
 {{--                        <li class="nav-item">--}}
-{{--                            <a class="nav-link text-white" href="{{ route('Customer.contact') }}">Liên hệ</a>--}}
+{{--                            <a class="nav-link active" href="#">Đặt sân</a>--}}
+{{--                        </li>--}}
+{{--                        <li class="nav-item">--}}
+{{--                            <a class="nav-link text-white" href="{{ route('customers.contact') }}">Liên hệ</a>--}}
 {{--                        </li>--}}
                     </ul>
                 </div>
             </div>
         </nav>
         <!-- End navbar -->
+        <!-- Main -->
         <div class=" border-bottom" style="background-color: green; color: white">
             <marquee behavior="" direction="left" scrollamount="15">Trang web cho thuê sân bóng đá hàng đầu Việt Nam
             </marquee>
@@ -50,7 +51,7 @@
                 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img height="300" src="../resources/Images/san.jpg" class="d-block w-100" alt="...">
+                            <img height="300" src="../../resources/Images/san.jpg" class="d-block w-100" alt="...">
                         </div>
                         <div class="carousel-item">
                             <img height="300"
@@ -58,7 +59,7 @@
                                  class="d-block w-100" alt="...">
                         </div>
                         <div class="carousel-item">
-                            <img height="300" src="../resources/Images/san1.jpg" class="d-block w-100" alt="...">
+                            <img height="300" src="../../resources/Images/san1.jpg" class="d-block w-100" alt="...">
                         </div>
                         <div class="carousel-item">
                             <img height="300"
@@ -78,52 +79,56 @@
                     </button>
                 </div>
             </div>
-            <!--         Card           -->
-            <div class="d-flex d-flex justify-content-evenly my-2">
-
-                <div class="card" style="width: 18rem;">
-                    <img src="../resources/Images/field1.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Sân số 1</h5>
-                        <p class="card-text"></p>
-                        <a href="{{ route('Customer.orders') }}" class="btn btn-primary">Đặt sân</a>
-                    </div>
-                </div>
--
-                <div class="card" style="width: 18rem;">
-                    <img src="../resources/Images/field2.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Sân số 2</h5>
-                        <p class="card-text"></p>
-                        <a href="{{ route('Customer.orders') }}" class="btn btn-primary">Đặt sân</a>
-                    </div>
-                </div>
-
-                <div class="card" style="width: 18rem;">
-                    <img src="../resources/Images/field3.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Sân số 3</h5>
-                        <p class="card-text"></p>
-                        <a href="{{ route('Customer.orders') }}" class="btn btn-primary">Đặt sân</a>
-                    </div>
-                </div>
-
-                <div class="card" style="width: 18rem;">
-                    <img src="../resources/Images/field4.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Sân số 4</h5>
-                        <p class="card-text"></p>
-                        <a href="{{ route('Customer.orders') }}" class="btn btn-primary">Đặt sân</a>
-                    </div>
-                </div>
+            <div class="row">
+            <div class="row mt-1" style="margin-bottom: 50px; margin-top: 50px">
+                <b class="text-white bg-success" style="font-size: x-large; text-align: center">ĐẶT SÂN</b>
             </div>
-            {{--         End Card           --}}
-        </div>
-        <div class="row mt-2">
-            <marquee behavior="" direction="right" scrollamount="30"> <img src="../resources/Images/mesi.png" height= 7% width= 7%></marquee>
+            <div class="d-flex d-flex justify-content-evenly my-2" style="align-content: center">
+                    <form class="col-4" action="" method="post">
+                        <div class="form-floating mb-5">
+                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                            <label for="floatingInput" style="text-align: center">Email</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="floatingName" placeholder="Họ tên">
+                            <label for="floatingName" style="text-align: center">Mật Khẩu</label>
+                        </div>
+                    </form>
+                    <form class="col-4" action="" method="post">
+                        <div class="form-floating mb-5">
+                            <input placeholder="Select date" class="form-control" type="date" id="Date"
+                                   placeholder="Ngày đặt">
+                            <label for="Date" style="text-align: center">Ngày đặt sân</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input placeholder="Select tim" class="form-control" type="time" id="TimeOp"
+                                   placeholder="Giờ bắt đầu - kết thúc">
+                            <label for="TimeOp" style="text-align: center">Giờ bắt đầu - Kết Thúc</label>
+                            <input placeholder="Select date" class="form-control" type="time" id="TimeEn"
+                                   placeholder="Giờ kết thúc">
+{{--                            <label for="TimeEn">Giờ kết thúc</label>--}}
+                        </div>
+{{--                        <div class="form-floating mb-3">--}}
+{{--                            <input placeholder="Select date" class="form-control" type="time" id="TimeEn"--}}
+{{--                                   placeholder="Giờ kết thúc">--}}
+{{--                            <label for="TimeEn">Giờ kết thúc</label>--}}
+{{--                        </div>--}}
+                    </form>
+            </div>
+                <btn class="d-flex d-flex justify-content-evenly my-2" style="align-content: center">
+                    <input type="button" id="btn" class="btn btn-warning" value="Đặt sân"/>
+                    <script language="javascript">
+                        var button = document.getElementById("btn");
+                        button.onclick = function(){
+                            alert("Bạn đã đặt sân thành công");
+                        }
+                    </script>
+                </btn>
+            </div>
         </div>
     </div>
 </div>
+<!--Footer-->
 <footer class="d-flex flex-warp justify-content-between align-items-center py-1"
         style="background-color: green">
     <div class="col-md-4 align-items-center text-white ms-3" style="--bs-text-opacity: .75;">© 2023 SigmaDuck

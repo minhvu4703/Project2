@@ -19,15 +19,15 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        return view('Customer.index');
+        return view('customers.index');
     }
 
     public function order() {
-        return view('Customer.orders');
+        return view('customers.orders');
     }
 
     public function contact() {
-        return view('Customer.contact');
+        return view('customers.contact');
     }
 
 
@@ -39,7 +39,7 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        return view('Customer.register');
+        return view('customers.register');
     }
 
     /**
@@ -58,7 +58,7 @@ class CustomerController extends Controller
         $array = Arr::add($array, 'name', $request->name);
         $array = Arr::add($array, 'password', $password);
         Customer::create($array);
-        return Redirect::route('Customer.login');
+        return Redirect::route('customers.login');
     }
 
     /**
@@ -80,8 +80,8 @@ class CustomerController extends Controller
      */
     public function edit(Customer $customers)
     {
-        return view('Customer.edit', [
-            'Customer' => $customers
+        return view('customers.edit', [
+            'customers' => $customers
         ]);
     }
 
@@ -101,7 +101,7 @@ class CustomerController extends Controller
         $array = Arr::add($array, 'email', $request->email);
         $array = Arr::add($array, 'password', $request->password);
         $customers->update($array);
-        return Redirect::route('Customer.index');
+        return Redirect::route('customers.index');
     }
 
     /**
@@ -115,7 +115,7 @@ class CustomerController extends Controller
         $del_cust = new Customer();
         $del_cust->id = $request->id;
         $del_cust->destroyCustomer();
-        return Redirect::route('Customer.index');
+        return Redirect::route('customers.index');
     }
     public function login() {
         return view('customers.login');
@@ -130,7 +130,7 @@ class CustomerController extends Controller
             $customers = Auth::guard('customers')->user();
             Auth::guard('customers')->login($customers);
             session(['customers' => $customers]);
-            return Redirect::route('Customer.index');
+            return Redirect::route('customers.index');
         } else {
             // Quay về trang login
             return Redirect::back();

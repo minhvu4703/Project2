@@ -24,7 +24,7 @@
                 <!--Sidebar -->
                 <div
                     id="sidebar" class="d-flex flex-column flex-shrink-0 bg-success bg-opacity-75 bg-gradient border border-white border-1 ps-2">
-                    <a href="{{ route('Admin.index') }}" class="link-dark border-bottom border-white border-5" style="width: 83px">
+                    <a href="{{ route('dashboard.index') }}" class="link-dark border-bottom border-white border-5" style="width: 83px">
                         <img src="../resources/Images/admin.png" style="width: 100%">
                     </a>
                     <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
@@ -34,18 +34,18 @@
                             </a>
                         </li>
                         <li class="nav-item" style="margin-bottom: 20px; margin-top: 20px">
-                            <a href="{{ route('fields.index') }}" class="" style="width: 83px">
+                            <a href="{{ route('Fields.index') }}" class="" style="width: 83px">
                                 <img src="../resources/Images/pitch.png" style="width: 50px; height: 50px">
                             </a>
                         </li>
                         <li class="nav-item" style="margin-bottom: 20px; margin-top: 20px">
-                            <a href="{{ route('Admin.customers') }}" class="" style="width: 83px">
+                            <a href="{{ route('dashboard.customers') }}" class="" style="width: 83px">
                                 <img src="../resources/Images/end-user.png" style="width: 50px; height: 50px">
                             </a>
                         </li>
                         <li class="nav-item" style="margin-bottom: 20px; margin-top: 20px">
                             <a href="#" class="" style="width: 83px">
-                            {{-- {{ route('Admin.orders') }} --}}
+                            {{-- {{ route('dashboard.orders') }} --}}
                                 <img src="../resources/Images/clipboard.png" style="width: 50px; height: 50px">
                             </a>
                         </li>
@@ -67,7 +67,7 @@
                 {{--    End Sidebar    --}}
                 <div class="col col-11 ps-3">
                     <div class=" bg-opacity-50 " style="background-color: white ">
-                        <p><a href="{{route('Customer.index')}}" class="link-primary">Trang chủ</a> / <a href="#" class="link-secondary" aria-disabled="true">Thống kê</a></p>
+                        <p><a href="{{route('customers.index')}}" class="link-primary">Trang chủ</a> / <a href="#" class="link-secondary" aria-disabled="true">Thống kê</a></p>
                     </div>
                     <div>
                         <h1 class="text-white border-bottom mt-4" style="font-family: 'system-ui'; font-size: xxx-large ; text-align: center">THỐNG KÊ</h1>

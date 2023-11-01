@@ -18,10 +18,10 @@ Route::get('/', function () {
 });
 
 Route::prefix('/customers')->group(function () {
-    Route::get('/login', [\App\Http\Controllers\CustomerController::class, 'login'])->name('Customer.login');
-    Route::post('/loginProcess', [\App\Http\Controllers\CustomerController::class, 'loginProcess'])->name('Customer.loginProcess');
-    Route::get('/register', [\App\Http\Controllers\CustomerController::class, 'create'])->name('Customer.register');
-    Route::post('/register', [\App\Http\Controllers\CustomerController::class, 'store'])->name('Customer.store');
+    Route::get('/login', [\App\Http\Controllers\CustomerController::class, 'login'])->name('customers.login');
+    Route::post('/loginProcess', [\App\Http\Controllers\CustomerController::class, 'loginProcess'])->name('customers.loginProcess');
+    Route::get('/register', [\App\Http\Controllers\CustomerController::class, 'create'])->name('customers.register');
+    Route::post('/register', [\App\Http\Controllers\CustomerController::class, 'store'])->name('customers.store');
 });
 
 Route::prefix('/dashboard')->group(function (){
@@ -29,13 +29,15 @@ Route::prefix('/dashboard')->group(function (){
     Route::post('/loginProcess', [\App\Http\Controllers\AdminController::class, 'loginProcess'])->name('dashboard.loginProcess');
 });
 
+//
 Route::middleware('loginCustomer')->prefix('/customers')->group(function (){
-    Route::get('/', [\App\Http\Controllers\CustomerController::class, 'index'])->name('Customer.index');
-    Route::get('/orders', [\App\Http\Controllers\CustomerController::class, 'order'])->name('Customer.orders');
-    Route::get('/history', [\App\Http\Controllers\CustomerController::class, 'history'])->name('Customer.history');
-    Route::delete('/customers/{id}', [\App\Http\Controllers\CustomerController::class, 'destroy'])->name('Customer.destroy');
+    Route::get('/', [\App\Http\Controllers\CustomerController::class, 'index'])->name('customers.index');
+    Route::get('/orders', [\App\Http\Controllers\CustomerController::class, 'order'])->name('customers.orders');
+    Route::get('/history', [\App\Http\Controllers\CustomerController::class, 'history'])->name('customers.history');
+    Route::delete('/customers/{id}', [\App\Http\Controllers\CustomerController::class, 'destroy'])->name('customers.destroy');
 });
 
+//middleware('loginAdmin')->
 Route::middleware('loginAdmin')->prefix('/dashboard')->group(function (){
     Route::get('/', [\App\Http\Controllers\AdminController::class, 'dashboard'])->name('dashboard.index');
     Route::get('/fields',[\App\Http\Controllers\FieldController::class, 'index'])->name('Fields.index');
@@ -44,9 +46,9 @@ Route::middleware('loginAdmin')->prefix('/dashboard')->group(function (){
     Route::get('/customers', [\App\Http\Controllers\AdminController::class, 'customers'])->name('dashboard.customers');
     Route::delete('/fields/{id}', [\App\Http\Controllers\FieldController::class, 'destroy'])->name('Fields.destroy');
     Route::get('/fields/{field}/edit', [\App\Http\Controllers\FieldController::class, 'edit'])->name('Fields.edit');
-    Route::put('/fields/{field}/edit', [\App\Http\Controllers\FieldController::class, 'update'])->name('Fields.update');
+    Route::put('/fields/{field}/edit', [\App\Http\Controllers\FieldController::class, 'update'])->name('Fields .update');
     Route::get('/order', [\App\Http\Controllers\OrderController::class, 'index'])->name('dashboard.orders');
-    Route::put('/order/{order}/update', [\App\Http\Controllers\OrderDetailController::class, 'update'])->name('orders.update');
+    Route::put('/order/{order}/update', [\App\Http\Controllers\OrderDetailController::class, 'update'])->name('Orders.update');
     Route::get('/field_types', [\App\Http\Controllers\FieldTypeController::class, 'index'])->name('field_types.index');
     Route::get('/times', [\App\Http\Controllers\TimeController::class, 'index'])->name('times.index');
     Route::get('/admin', [\App\Http\Controllers\AdminController::class, 'index'])->name('Admin.index');
@@ -54,5 +56,4 @@ Route::middleware('loginAdmin')->prefix('/dashboard')->group(function (){
     Route::post('/admin/store', [\App\Http\Controllers\AdminController::class, 'store'])->name('Admin.store');
     Route::delete('/admin/{id}', [\App\Http\Controllers\AdminController::class, 'destroy'])->name('Admin.destroy');
     Route::get('/logout', [\App\Http\Controllers\AdminController::class, 'logout'])->name('dashboard.logout');
-
 });

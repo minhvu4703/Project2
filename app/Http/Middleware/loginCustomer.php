@@ -19,6 +19,6 @@ class loginCustomer
         if (session()->has('customers')) {
             return $next($request);
         } else {
-            return Redirect::route('Customer.login');
+            return Redirect::route('customers.login');
         }    }
 }

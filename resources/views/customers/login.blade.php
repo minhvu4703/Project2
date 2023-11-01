@@ -13,33 +13,27 @@
 </head>
 <body>
 <div id="intro" class="bg-image">
-<<<<<<< HEAD
     <div class="container text-center">
         <div class="row" style="height: 750px">
             <div class="col align-self-center">
-                <form class="" method="post" action="{{ route('Customer.loginProcess') }}" style="color: black" >
-=======
-
-    <div class="container text-center">
-        <div class="row" style="height: 750px">
-            <div class="col align-self-center">
-                <form class="" method="post" action="{{ route('dashboard.loginProcess') }}" style="color: black" >
->>>>>>> origin/master
+                <form class="" method="post" action="{{ route('customers.loginProcess') }}"
+                      style="color: black">
                     <label style="font-size: 50px; color: white">SigmaDuck</label><br>
                     @csrf
                     <p class="">Email:</p>    <input type="email" name="email"><br>
                     <p class="mt-3">Password:</p> <input type="password" name="password"><br>
-                    <button class="btn btn-success mt-3" >Đăng nhập với tư cách Khách Hàng</button>
-                    <a href="{{ route('dashboard.login') }}" class="btn btn-white mt-3">Đăng nhập với tư cách Quản Trị Viên</a>
-<<<<<<< HEAD
-                    <a href="{{route('Customer.register')}}" class="btn btn-white mt-3">Đăng ký</a>
-=======
->>>>>>> origin/master
+                    <button class="btn btn-success mt-3">Đăng nhập với tư cách Khách Hàng</button>
+                    {{--                                    nút đổi sang đăng nhập của quản trị viên--}}
+                    <a href="{{ route('dashboard.login') }}" class="btn btn-white mt-3">Đăng nhập với tư cách Quản Trị
+                        Viên</a>
+                    <a href="{{route('customers.register')}}" class="btn btn-white mt-3">Đăng ký</a>
                 </form>
             </div>
         </div>
     </div>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
 </body>
 </html>

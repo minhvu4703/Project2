@@ -23,7 +23,7 @@
                         <p class="">Email:</p>    <input type="email" name="email"><br>
                         <p class="mt-3">Password:</p> <input type="password" name="password"><br>
                         <button class="btn btn-success mt-3" >Đăng nhập với tư cách quản trị viên</button>
-                        <a href="{{ route('Customer.login') }}" class="btn btn-white">Đăng nhập với tư cách khách</a>
+                        <a href="{{ route('customers.login') }}" class="btn btn-white">Đăng nhập với tư cách khách</a>
                     </form>
                 </div>
             </div>

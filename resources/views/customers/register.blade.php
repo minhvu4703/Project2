@@ -16,7 +16,7 @@
     <div class="container text-center">
         <div class="row d-flex align-items-center justify-content-center" style="height: 750px">
             <div class="col align-self-center">
-                <form class="" method="post" action="{{ route('Customer.store') }}" style="color: white">
+                <form class="" method="post" action="{{ route('customers.store') }}" style="color: white">
                     <label class="text-white" style="font-size: 50px">SigmaDuck</label><br>
                     @csrf
                     <p>Email:</p><input type="email" name="email"><br>
@@ -24,7 +24,7 @@
                     <p>Số điện thoại:</p><input type="text" name="phonenumber"><br>
                     <p>Họ và tên</p><input type="text" name="name"><br>
                     <p>Mật khẩu:</p><input type="password" name="password"><br>
-                    <a href="{{ route('Customer.login') }}" class="btn btn-warning mt-3">Quay lại</a>
+                    <a href="{{ route('customers.login') }}" class="btn btn-warning mt-3">Quay lại</a>
                     <button class="btn btn-warning mt-3">Đăng ký</button>
                 </form>
             </div>

@@ -20,14 +20,15 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+
+    public function dashboard()
     {
         $fieldCount = Field::count();
         $adCount = Admin::count();
         $custCount = Customer::count();
 //        $timeCount = Time::count();
         $ordCount = Order::count();
-        return view('admin.index', [
+        return view('dashboard.index', [
             'fieldCount' => $fieldCount,
             'custCount' => $custCount,
             'adCount' => $adCount,
@@ -36,9 +37,17 @@ class AdminController extends Controller
         ]);
     }
 
+    public function index()
+    {
+        $admin = Admin::all();
+        return view('admin.index',[
+            'admins' => $admin
+        ]);
+    }
+
     public function customers() {
         $customers = Customer::paginate(10);
-        return view('Admin.customers', [
+        return view('dashboard.customers', [
             'customers' => $customers
         ]);
     }
@@ -51,6 +60,7 @@ class AdminController extends Controller
     public function create()
     {
         //
+        return view('admin.create');
     }
 
     /**
@@ -114,6 +124,10 @@ class AdminController extends Controller
     public function destroy(Admin $admin)
     {
         //
+        $del_ad = new Admin();
+        $del_ad->id = $request->id;
+        $del_ad->destroyAdmin();
+        return Redirect::route('admin.index');
     }
 
     // Function login
@@ -130,9 +144,14 @@ class AdminController extends Controller
             Auth::guard('admins')->login($admin);
             session(['admins' => $admin]);
 //            dd($account);
-            return Redirect::route('Admin.index');
+            return Redirect::route('dashboard.index');
         } else {
             return Redirect::back();
         }
+    }
+    public function logout() {
+        Auth::guard('admins')->logout();
+        session()->forget('admins');
+        return Redirect::route('dashboard.login');
     }
 }

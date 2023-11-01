@@ -27,12 +27,12 @@
 
     <!--Sidebar -->
     <div id="sidebar" class="d-flex flex-column flex-shrink-0 bg-success bg-opacity-75 bg-gradient border border-white border-1 ps-2">
-        <a href="{{ route('Admin.index') }}" class="link-dark border-bottom border-white border-5" style="width: 83px">
+        <a href="{{ route('dashboard.index') }}" class="link-dark border-bottom border-white border-5" style="width: 83px">
             <img src="../../resources/Images/admin.png" style="width: 100%">
         </a>
         <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
             <li class="nav-item " style="margin-bottom: 20px; margin-top: 20px">
-                <a href="{{ route('Admin.index') }}" class="" style="width: 83px">
+                <a href="{{ route('dashboard.index') }}" class="" style="width: 83px">
                     <img src="../../resources/Images/analytics.png" style="width: 50px; height: 50px">
                 </a>
             </li>
@@ -42,7 +42,7 @@
                 </a>
             </li>
             <li class="nav-item" style="margin-bottom: 20px; margin-top: 20px">
-                <a href="{{ route('Admin.customers') }}" class="" style="width: 83px">
+                <a href="{{ route('dashboard.customers') }}" class="" style="width: 83px">
                     <img src="../../resources/Images/end-user.png" style="width: 50px; height: 50px">
                 </a>
             </li>
@@ -71,7 +71,7 @@
         <div class="" style="background-color: white">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{ route('Customer.index') }}">Trang chủ</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('customers.index') }}">Trang chủ</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Quản lý sân</li>
             </ol>
         </nav>
@@ -87,7 +87,7 @@
             <table class="table table-info table-striped" border="1px" cellpadding="0" cellspacing="0" width="100%">
                 <thead>
                 <tr>
-                    <a class="btn btn-success btn-lg my-2" href="#"><i class="fa-solid fa-circle-plus"></i></a> <!--{{ route('fields.create') }} -->
+                    <a class="btn btn-success btn-lg my-2" href="#"><i class="fa-solid fa-circle-plus"></i></a> <!--{{ route('Fields.create') }} -->
                     <th scope="col">ID sân</th>
                     <th scope="col">Tên sân</th>
                     <th scope="col">Ảnh sân</th>
@@ -131,7 +131,7 @@
                                     <div class="modal-footer">
                                         <div class="modal-footer">
                                             <button class="btn btn-light" data-bs-dismiss="modal">Không</button>
-                                            <form method="post" action="{{ route('fields.destroy', $item->id) }}">
+                                            <form method="post" action="{{ route('Fields.destroy', $item->id) }}">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button class="btn btn-danger">Có</button>

@@ -21,17 +21,17 @@
 <div class="d-flex flex-nowrap">
     <div class="d-flex flex-column flex-shrink-0 bg-success bg-gradient border-end border-black border-1 ps-2">
         <a href="{{ route('customers.index') }}" class="link-dark" style="width: 83px">
-            <img src="../../../resources/Images/ava-web.png" style="width: 100%">
+            <img src="../../../resources/Images/admin.png" style="width: 100%">
         </a>
         <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
             <li class="nav-item">
                 <a href="{{ route('admin.index') }}" class="nav-link py-3 border-bottom border-black border-2" style="width: 83px">
-                    <img src="../../../resources/Images/bar-chart.png" style="width: 24px; height: 24px">
+                    <img src="../../../resources/Images/analytics.png" style="width: 24px; height: 24px">
                 </a>
             </li>
             <li class="nav-item">
                 <a href="#" class="nav-link py-3 bg-warning border-bottom border-black border-2" style="width: 83px">
-                    <img src="../../../resources/Images/football-field.png" style="width: 24px; height: 24px">
+                    <img src="../../../resources/Images/pitch.png" style="width: 24px; height: 24px">
                 </a>
             </li>
             <li class="nav-item">
@@ -47,7 +47,7 @@
         </ul>
         <div class="dropup border-top">
             <a href="#" class="d-flex align-items-center justify-content-center p-3 link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="../../../resources/Images/ava-web.png" alt="Admin" width="42" height="42" class="rounded-circle">
+                <img src="../../../resources/Images/Vit.png" alt="Admin" width="42" height="42" class="rounded-circle">
             </a>
             <ul class="dropdown-menu text-small shadow">
                 <li>
