@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class loginCustomer
 {
@@ -16,9 +17,9 @@ class loginCustomer
      */
     public function handle(Request $request, Closure $next)
     {
-        if (session()->has('customers')) {
+        if (session()->has('customers')){
             return $next($request);
-        } else {
-            return Redirect::route('customers.login');
-        }    }
+        }
+        return Redirect::route('customers.login');
+    }
 }

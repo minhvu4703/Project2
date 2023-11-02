@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string("total_price");
             $table->foreignId("ad_id")->constrained("admins");
             $table->foreignId("cust_id")->constrained("customers");
+            $table->integer('status');
+            $table->date('date');
         });
     }
 

@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
             $table->time("time_start");
             $table->time("time_end");
-            $table->date("date");
         });
     }
 

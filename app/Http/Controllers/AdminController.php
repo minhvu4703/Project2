@@ -138,7 +138,7 @@ class AdminController extends Controller
     }
 
     public function loginProcess(Request $request) {
-        $account = $request->only(['email', 'password']);
+        $account = $request->except('_token');
 //        $check = Auth::guard('admins')->attempt($account);
 //        dd($check);
         if(Auth::guard('admins')->attempt($account)) {
@@ -151,9 +151,11 @@ class AdminController extends Controller
             return Redirect::back();
         }
     }
+
     public function logout() {
         Auth::guard('admins')->logout();
         session()->forget('admins');
         return Redirect::route('dashboard.login');
     }
+
 }

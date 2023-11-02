@@ -22,8 +22,8 @@
                     @csrf
                     <p class="">Email:</p>    <input type="email" name="email"><br>
                     <p class="mt-3">Password:</p> <input type="password" name="password"><br>
-                    <button class="btn btn-success mt-3">Đăng nhập với tư cách Khách Hàng</button>
-                    {{--                                    nút đổi sang đăng nhập của quản trị viên--}}
+                    <button class="btn btn-success mt-3">Đăng nhập</button>
+                    {{--nút đổi sang đăng nhập của quản trị viên--}}
                     <a href="{{ route('dashboard.login') }}" class="btn btn-white mt-3">Đăng nhập với tư cách Quản Trị
                         Viên</a>
                     <a href="{{route('customers.register')}}" class="btn btn-white mt-3">Đăng ký</a>
