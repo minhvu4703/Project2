@@ -123,7 +123,7 @@ class AdminController extends Controller
      * @param $request
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Admin $admin, $request)
+    public function destroy(Admin $admin, Request $request)
     {
         //
         $del_ad = new Admin();
