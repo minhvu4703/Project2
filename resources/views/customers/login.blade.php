@@ -9,7 +9,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.css" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="../../resources/Images/Vit.png">
     <link rel="stylesheet" href="../../resources/css/intro.css">
-    <title>Login function test</title>
+    <title>Login Customer</title>
 </head>
 <body>
 <div id="intro" class="bg-image">

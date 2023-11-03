@@ -18,28 +18,6 @@ class Field extends Model
         return $this->belongsTo(FieldType::class, 'type_id', 'id');
     }
 
-    // Old function index
-//    public function index() {
-//        $fields = DB::table('fields')
-//            ->join('field_types', 'fields.type_id', '=', 'field_types.id')
-//            ->select([
-//                'fields.*',
-//                'field_types.type AS type'
-//            ])
-//            ->get();
-//        return $fields;                                                                ;
-//    }
-
-// Old function store
-//    public function store() {
-//        DB::table('fields')
-//            ->insert([
-//               'name' => $this->name,
-//                'image' => $this->image,
-//                'description' => $this->description,
-//                'type_id' => $this->type_id,
-//            ]);
-//    }
     public function edit() {
         $fields = DB::table('fields')
             ->where('id', $this->id)

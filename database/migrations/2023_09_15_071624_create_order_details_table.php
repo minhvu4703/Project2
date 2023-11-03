@@ -14,10 +14,11 @@ return new class extends Migration
     public function up()
     {
         Schema::create('order_details', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId("order_id")->constrained("orders");
-            $table->foreignId("field_id")->constrained("fields");
-            $table->foreignId("time_id")->constrained("times");
+            $table->foreignId('order_id')->constrained('orders');
+            $table->foreignId('admin_id')->constrained('admins');
+            $table->foreignId('customer_id')->constrained('customers');
+            $table->foreignId('field_id')->constrained('fields');
+            $table->foreignId('time_id')->constrained('times');
         });
     }
 

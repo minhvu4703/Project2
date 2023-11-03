@@ -82,7 +82,9 @@
                 </li>
             </ul>
             <div class="dropup border-top">
-                <a href="#" class="d-flex align-items-center justify-content-center p-3 link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                <a href="#"
+                   class="d-flex align-items-center justify-content-center p-3 link-dark text-decoration-none dropdown-toggle"
+                   data-bs-toggle="dropdown" aria-expanded="false">
                     <img src="../../resources/Images/Vit.png" alt="Admin" width="42" height="42" class="rounded-circle">
                 </a>
                 <ul class="dropdown-menu text-small shadow">
@@ -94,81 +96,95 @@
         </div>
         {{-- End SideBar --}}
         <div class="col col-11 ps-3">
-            <nav aria-label="breadcrumb">
-                <div class=" bg-opacity-50 " style="background-color: white ">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ route('customers.index') }}">Trang chủ</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Quản lý nhân viên</li>
-                    </ol>
-                </div>
-            </nav>
             <div>
                 <h1 class="text-white mt-4 border-bottom border-white border-4 my-4"
                     style="font-family: 'system-ui'; font-size: xxx-large; text-align: center">QUẢN LÝ NHÂN VIÊN</h1>
             </div>
-            <div class="">
-                <table class="table table-light table-striped" border="1px" cellpadding="0" cellspacing="0"
-                       width="100%">
-                    <thead>
-                    <tr>
-                        <a class="btn btn-success btn-lg my-2" href="{{ route('admin.create') }}"><i
-                                class="fa-solid fa-circle-plus fa-lg"></i></a>
-                        <th scope="col" class="text-center">ID</th>
-                        <th scope="col">Họ và tên</th>
-                        <th scope="col">Số điện thoại</th>
-                        <th scope="col">Email</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    @foreach($admins as $item)
+            <a class="btn btn-success btn-lg my-2" href="{{ route('admin.create') }}"><i
+                    class="fa-solid fa-circle-plus fa-lg"></i></a>
+            {{-- Table --}}
+            <div class="row">
+                <div class="col col-1">
+                    <table class="table table-light mt-3" border="1px" cellpadding="0" cellspacing="0"
+                           width="100%">
+                        <thead>
                         <tr>
-                            <td class="text-center">{{ $item -> id }}</td>
-                            <td>{{ $item -> name }}</td>
-                            <td>{{ $item->phonenumber }}</td>
-                            <td>{{ $item->email }}</td>
-                            <td>
-                                <button type="button" class="btn btn-danger btn-lg my-1" data-bs-toggle="modal"
-                                        data-bs-target="#myModal{{ $item->id }}"><i class="fa-solid fa-trash-can"></i>
-                                </button>
+                            <th scope="col" class="text-center">ID</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($admins as $item)
+                            <tr>
+                                <td class="text-center">{{ $item -> id }}</td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                </div>
+                {{-- End ID --}}
+                <div class="col">
+                    <table class="table table-light mt-3" border="1px" cellpadding="0" cellspacing="0"
+                           width="100%">
+                        <thead>
+                        <tr>
+                            <th scope="col">Họ và tên</th>
+                            <th scope="col">Số điện thoại</th>
+                            <th scope="col">Email</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($admins as $item)
+                            <tr>
+                                <td>{{ $item -> name }}</td>
+                                <td>{{ $item->phonenumber }}</td>
+                                <td>{{ $item->email }}</td>
+                                <td>
+                                    <button type="button" class="btn btn-danger btn-lg my-1" data-bs-toggle="modal"
+                                            data-bs-target="#myModal{{ $item->id }}"><i
+                                            class="fa-solid fa-trash-can"></i>
+                                    </button>
 
-                                {{--                            Modal--}}
-                                <div class="modal fade" id="myModal{{ $item->id }}">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <!-- Modal Header -->
-                                            <div class="modal-header">
-                                                <h4 class="modal-title">Xác nhận xóa</h4>
-                                                <button type="button" class="btn-close"
-                                                        data-bs-dismiss="modal"></button>
-                                            </div>
+                                    {{--Modal--}}
+                                    <div class="modal fade" id="myModal{{ $item->id }}">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <!-- Modal Header -->
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title">Xác nhận xóa</h4>
+                                                    <button type="button" class="btn-close"
+                                                            data-bs-dismiss="modal"></button>
+                                                </div>
 
-                                            <!-- Modal body -->
-                                            <div class="modal-body">
-                                                Bạn có chắc chắn muốn xóa mục này?
-                                            </div>
+                                                <!-- Modal body -->
+                                                <div class="modal-body">
+                                                    Bạn có chắc chắn muốn xóa mục này?
+                                                </div>
 
-                                            <!-- Modal footer -->
-                                            <div class="modal-footer">
+                                                <!-- Modal footer -->
                                                 <div class="modal-footer">
-                                                    <button class="btn btn-light" data-bs-dismiss="modal">Không</button>
-                                                    <form method="post"
-                                                          action="{{ route('admin.destroy', $item->id) }}">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button class="btn btn-danger">Xoá</button>
-                                                    </form>
+                                                    <div class="modal-footer">
+                                                        <button class="btn btn-light" data-bs-dismiss="modal">Không
+                                                        </button>
+                                                        <form method="post"
+                                                              action="{{ route('admin.destroy', $item->id) }}">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button class="btn btn-danger">Xoá</button>
+                                                        </form>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </td>
-                        </tr>
-                    @endforeach
-                    </tbody>
-
-                </table>
+                                </td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                </div>
+                {{-- End Name --}}
             </div>
+            {{-- End table --}}
         </div>
     </div>
 </div>

@@ -90,11 +90,6 @@
             </div>
             {{-- End SideBar --}}
             <div class="col col-11 ps-3">
-                <div class=" bg-opacity-50 " style="background-color: white ">
-                    <p><a href="{{route('customers.index')}}" class="link-primary">Trang chủ</a> / <a href="#"
-                                                                                                      class="link-secondary"
-                                                                                                      aria-disabled="true">Thống kê</a></p>
-                </div>
                 <div>
                     <h1 class="text-white border-bottom mt-4"
                         style="font-family: 'system-ui'; font-size: xxx-large ; text-align: center">THỐNG KÊ</h1>

@@ -38,6 +38,9 @@
                         <li class="nav-item">
                             <a class="nav-link active" href="#">Lịch sử</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="{{ route('customers.logout') }}">Đăng xuất</a>
+                        </li>
                     </ul>
                 </div>
             </div>

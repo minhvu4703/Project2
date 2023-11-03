@@ -9,7 +9,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.css" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="../../resources/Images/Vit.png">
     <link rel="stylesheet" href="../../resources/css/intro.css">
-    <title>Login function test</title>
+    <title>Login Admin</title>
 </head>
 <body>
 <div id="intro" class="bg-image">
@@ -21,7 +21,7 @@
                         @csrf
                         <p class="">Email:</p>    <input type="email" name="email"><br>
                         <p class="mt-3">Password:</p> <input type="password" name="password"><br>
-                        <button class="btn btn-success mt-3" >Đăng nhập với tư cách quản trị viên</button>
+                        <button class="btn btn-success mt-3" >Đăng nhập</button>
                         <a href="{{ route('customers.login') }}" class="btn btn-white">Đăng nhập với tư cách khách</a>
                     </form>
                 </div>

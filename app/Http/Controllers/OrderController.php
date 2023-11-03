@@ -2,10 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Admin;
+use App\Models\Field;
+use App\Models\FieldType;
 use App\Models\Order;
 use App\Http\Requests\StoreOrderRequest;
 use App\Http\Requests\UpdateOrderRequest;
-
+use App\Models\OrderDetail;
+use App\Models\Time;
+use Carbon\Carbon;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Session;
 class OrderController extends Controller
 {
     /**
@@ -16,14 +24,42 @@ class OrderController extends Controller
     public function index()
     {
         //
-        $orders = Order::with('customers')
-            ->with('fields')
-            ->with('customers')
-            ->with('admins')
-            ->with('times')
-            ->with('statuses')
-            ->simplePaginate(5);
-        return view('dashboard.orders', ['orders'=> $orders]);
+        $details = OrderDetail::all();
+        $datenow = Carbon::now()->format('d/m/y');
+        $now = Carbon::now()->format('H:i:s');
+//        dd($datenow);
+//        dd()
+        return view('dashboard.orders', [
+            'details'=> $details
+        ]);
+    }
+
+    public function order() {
+        $types = FieldType::all();
+//        $fields = Field::all();
+        $datenow = Carbon::now('Asia/Ho_Chi_Minh')->format('Y-m-d');
+//        $timenow = Carbon::now('Asia/Ho_Chi_Minh')->format('H:i:s');
+//        $times = Time::where('timeStart', '>', $timenow)->get();
+//        dd($datenow);
+
+        return view('customers.orders', [
+//            'times' => $times,
+            'types' => $types,
+//            'fields' => $fields,
+            'datenow' => $datenow
+        ]);
+    }
+
+    public function history() {
+        if (Session::exists('customers')) {
+//            dd(Session::get('customers')['id']);
+            $customers = Session::get('customers')['id'];
+            $details = OrderDetail::where('order_id', '=', 1) -> get();
+        }
+//        Session::put(['customers' => $customers]);
+        return view('customers.history', [
+            'details' => $details
+        ]);
     }
 
     /**
@@ -44,7 +80,25 @@ class OrderController extends Controller
      */
     public function store(StoreOrderRequest $request)
     {
-        //
+        //Đẩy order lên database
+        $array = [];
+        $array = Arr::add($array, 'order_note', $request -> order_note);
+        $array = Arr::add($array, 'status', 0);
+        $array = Arr::add($array, 'date', $request -> date);
+        Order::create($array);
+
+        // Đẩy order_details lên database
+        $customers = Session::get('customers')['id'];
+        $orders = Order::max('id');
+        $array2 =[];
+        $array2 = Arr::add($array2, 'order_id', $orders);
+        $array2 = Arr::add($array2, 'admin_id', random_int(1, Admin::count()));
+        $array2 = Arr::add($array2, 'customer_id', $customers);
+        $array2 = Arr::add($array2, 'field_id', $request -> fields);
+        $array2 = Arr::add($array2, 'time_id', $request -> times);
+        OrderDetail::create($array2);
+
+        return Redirect::route('customers.index');
     }
 
     /**
@@ -81,6 +135,25 @@ class OrderController extends Controller
         //
     }
 
+    public function acceptOrder(Order $order)
+    {
+        // Cập nhật trạng thái đơn hàng
+        $array = [];
+        $array = Arr::add($array, 'status', 1);
+        $order->update($array);
+        return Redirect::route('dashboard.orders');
+    }
+
+    public function deniedOrder(Order $order)
+    {
+        // Cập nhật trạng thái đơn hàng
+        $array = [];
+        $array = Arr::add($array, 'status', 2);
+        $order->update($array);
+        return Redirect::route('dashboard.orders');
+    }
+
+
     /**
      * Remove the specified resource from storage.
      *
@@ -90,5 +163,22 @@ class OrderController extends Controller
     public function destroy(Order $order)
     {
         //
+    }
+
+    public function getFields(\Illuminate\Http\Request $request) {
+        $id  = $request -> id;
+        $fields = Field::where('type_id', $id)->get();
+        return response()->json($fields);
+    }
+
+    public function getTimes2Day() {
+        $timenow = Carbon::now('Asia/Ho_Chi_Minh')->format('H:i:s');
+        $times = Time::where('time_start', '>', $timenow)->get();
+        return response()->json($times);
+    }
+
+    public function getTimesNextDay() {
+        $times = Time::all();
+        return response()->json($times);
     }
 }

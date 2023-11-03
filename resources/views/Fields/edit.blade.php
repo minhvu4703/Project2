@@ -81,7 +81,7 @@
             </a>
             <ul class="dropdown-menu text-small shadow">
                 <li>
-                    <a class="dropdown-item" href="#">Đăng xuất</a>
+                    <a class="dropdown-item" href="{{route('dashboard.logout')}}">Đăng xuất</a>
                 </li>
             </ul>
         </div>
@@ -100,6 +100,7 @@
         <div>
             <h1 class="text-white mt-4 border-bottom border-white border-4 my-4" style="font-family: 'Segoe UI Black'; font-size: xxx-large; text-align: center">SỬA SÂN</h1>
         </div>
+        {{-- Table --}}
         <div class="">
             {{-- {{ route('Fields.update', $fields) }} --}}
             <form method="post" action="" enctype="multipart/form-data">
@@ -132,6 +133,7 @@
                 <button class="btn btn-success btn-lg mt-3">Cập nhật</button>
             </form>
         </div>
+        {{-- End Table --}}
     </div>
 </div>
 </div>

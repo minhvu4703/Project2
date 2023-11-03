@@ -138,7 +138,7 @@ class AdminController extends Controller
     }
 
     public function loginProcess(Request $request) {
-        $account = $request->except('_token');
+        $account = $request->only(['email','password']);
 //        $check = Auth::guard('admins')->attempt($account);
 //        dd($check);
         if(Auth::guard('admins')->attempt($account)) {

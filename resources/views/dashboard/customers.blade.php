@@ -83,57 +83,71 @@
                 </li>
             </ul>
             <div class="dropup border-top">
-                <a href="#" class="d-flex align-items-center justify-content-center p-3 link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                <a href="#"
+                   class="d-flex align-items-center justify-content-center p-3 link-dark text-decoration-none dropdown-toggle"
+                   data-bs-toggle="dropdown" aria-expanded="false">
                     <img src="../../resources/Images/Vit.png" alt="Admin" width="42" height="42" class="rounded-circle">
                 </a>
                 <ul class="dropdown-menu text-small shadow">
                     <li>
-                        <a class="dropdown-item" href="#">Đăng xuất</a>
+                        <a class="dropdown-item" href="{{route('dashboard.logout')}}">Đăng xuất</a>
                     </li>
                 </ul>
             </div>
         </div>
         {{-- End SideBar --}}
         <div class="col col-11 ps-3">
-            <div class="" style="background-color: white">
-                <p><a href="{{ route('customers.index') }}" class="link-primary">Trang chủ</a> / <a href="#"
-                                                                                                    class="link-secondary"
-                                                                                                    aria-disabled="true">Quản lý người dùng</a></p>
-            </div>
             <div>
-                <h1 class="text-white mt-4 border-bottom border-4 my-4" style="font-family: 'system-ui'; font-size: xxx-large ; text-align: center">
+                <h1 class="text-white mt-4 border-bottom border-4 my-4"
+                    style="font-family: 'system-ui'; font-size: xxx-large ; text-align: center">
                     QUẢN LÝ NGƯỜI DÙNG</h1>
             </div>
-            <div class="">
-                <!-- Table -->
-                <table class="table table-light table-striped mt-4" border="1px" cellpadding="0" cellspacing="0"
-                       width="100%">
-                    <thead>
-                    <tr>
-                        <th scope="col">ID người dùng</th>
-                        <th scope="col">Họ và tên</th>
-                        <th scope="col">Địa chỉ</th>
-                        <th scope="col">Số điện thoại</th>
-                        <th scope="col">Email</th>
-                        {{-- <th scope="col">Mật khẩu</th> --}}
-                    </tr>
-                    </thead>
-                    <tbody>
-                    @foreach($customers as $item)
+            <!-- Table -->
+            <div class="row">
+                <div class="col col-2">
+                    <table class="table table-light table-striped mt-4" border="1px" cellpadding="0" cellspacing="0"
+                           width="100%">
+                        <thead>
                         <tr>
-                            <th scope="row">{{ $item -> id }}</th>
-                            <td>{{ $item -> name }}</td>
-                            <td>{{ $item->address }}</td>
-                            <td>{{ $item->phonenumber }}</td>
-                            <td>{{ $item->email }}</td>
-                            {{-- <td>{{ $item->password }}</td> --}}
+                            <th scope="col">ID người dùng</th>
                         </tr>
-                    @endforeach
-                    </tbody>
-
-                </table>
+                        </thead>
+                        <tbody>
+                        @foreach($customers as $item)
+                            <tr>
+                                <th scope="row">{{ $item -> id }}</th>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                </div>
+                {{-- End ID --}}
+                <div class="col">
+                    <table class="table table-light table-striped mt-4" border="1px" cellpadding="0" cellspacing="0"
+                           width="100%">
+                        <thead>
+                        <tr>
+                            <th scope="col">Họ và tên</th>
+                            <th scope="col">Địa chỉ</th>
+                            <th scope="col">Số điện thoại</th>
+                            <th scope="col">Email</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($customers as $item)
+                            <tr>
+                                <td>{{ $item -> name }}</td>
+                                <td>{{ $item->address }}</td>
+                                <td>{{ $item->phonenumber }}</td>
+                                <td>{{ $item->email }}</td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                </div>
                 {{ $customers->links() }}
             </div>
+            <!-- End Table -->
         </div>
     </div>
 </div>

@@ -7,11 +7,13 @@ use App\Http\Requests\StoreCustomerRequest;
 use App\Http\Requests\UpdateCustomerRequest;
 use App\Models\Field;
 use App\Models\FieldType;
+use App\Models\OrderDetail;
 use App\Models\Time;
 use Illuminate\Http\Client\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Session;
 
 class CustomerController extends Controller
 {
@@ -25,23 +27,6 @@ class CustomerController extends Controller
         return view('customers.index');
     }
 
-    public function order() {
-        $times = Time::all();
-        $types = FieldType::all();
-        $fields = Field::all();
-        return view('customers.orders', [
-            'times' => $times,
-            'types' => $types,
-            'fields' => $fields
-        ]);
-    }
-
-    public function history() {
-        return view('customers.history');
-    }
-
-
-
     /**
      * Show the form for creating a new resource.
      *
@@ -50,6 +35,16 @@ class CustomerController extends Controller
     public function create()
     {
         return view('customers.register');
+    }
+
+    public function history() {
+        if (Session::exists('customers')) {
+            $customers = Session::get('customers')['id'];
+            $details = OrderDetail::where('customer_id', '=', $customers) -> get();
+        }
+        return view('customers.history', [
+            'details' => $details
+        ]);
     }
 
     /**
@@ -104,12 +99,13 @@ class CustomerController extends Controller
      */
     public function update(UpdateCustomerRequest $request, Customer $customers)
     {
+        $password = bcrypt($request->password);
         $array = [];
         $array = Arr::add($array, 'name', $request->name);
         $array = Arr::add($array, 'address', $request->address);
         $array = Arr::add($array, 'phonenumber', $request->phonenumber);
         $array = Arr::add($array, 'email', $request->email);
-        $array = Arr::add($array, 'password', $request->password);
+        $array = Arr::add($array, 'password', $password);
         $customers->update($array);
         return Redirect::route('customers.index');
     }
@@ -131,7 +127,7 @@ class CustomerController extends Controller
         return view('customers.login');
     }
     public function loginProcess(\Illuminate\Http\Request $request) {
-        $account = $request->only(['email', 'password']);
+        $account = $request->except('_token');
         // Xác thực đăng nhập
         if(Auth::guard('customers')->attempt($account)){
 //        dd($check);
@@ -150,4 +146,12 @@ class CustomerController extends Controller
 //            return Redirect::route('customers.index');
         }
     }
+
+    public function logout()
+    {
+        Auth::guard('customers')->logout();
+        session()->forget('customers');
+        return Redirect::route('customers.login');
+    }
+
 }

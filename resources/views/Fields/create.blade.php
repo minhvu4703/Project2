@@ -87,15 +87,6 @@
     </div>
     {{-- End SideBar --}}
     <div class="col col-11 ps-3">
-        <div style="background-color: white">
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{ route('customers.index') }}">Trang chủ</a></li>
-                <li class="breadcrumb-item"><a href="{{ route('Fields.index') }}">Quản lý sân</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Thêm sân</li>
-            </ol>
-        </nav>
-        </div>
         <div>
             <h1 class="text-white mt-4 border-bottom border-white border-4 my-4" style="font-family: 'system-ui'; font-size: xxx-large; text-align: center">THÊM SÂN</h1>
         </div>

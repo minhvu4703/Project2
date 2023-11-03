@@ -16,27 +16,27 @@ class FieldController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
 
     // Chức năng hiển thị
     public function index()
     {
         $fields = Field::with('types')->simplePaginate(5);
-        return view('Fields.index', ['fields' => $fields]);
+        return view('fields.index', ['fields' => $fields]);
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
 
     // Chức năng hiển thị form thêm
     public function create()
     {
         $field_types = FieldType::all();
-        return view('Fields.create', [
+        return view('fields.create', [
             'field_types' => $field_types,
         ]);
     }
@@ -45,15 +45,15 @@ class FieldController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \App\Http\Requests\StoreFieldRequest  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
 
     // Chức năng thêm
     public function store(StoreFieldRequest $request)
     {
         $img_name = $request->file('image')->getClientOriginalName();
-        if(!Storage::exists('/public/admin/img'.$img_name)) {
-            Storage::putFileAs('public/admin/img', $request->file('image'), $img_name);
+        if(!Storage::exists('/public/dashboard/img'.$img_name)) {
+            Storage::putFileAs('public/dashboard/img', $request->file('image'), $img_name);
         }
         $array = [];
         $array = Arr::add($array, 'name', $request->name);
@@ -79,14 +79,14 @@ class FieldController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Field  $field
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
 
     // Chức năng hiện thị form sửa
     public function edit(Field $field, Request $request)
     {
         $types = FieldType::all();
-        return view('Fields.edit', [
+        return view('fields.edit', [
             'fields' => $field,
             'field_types' => $types,
         ]);
@@ -97,15 +97,15 @@ class FieldController extends Controller
      *
      * @param  \App\Http\Requests\UpdateFieldRequest  $request
      * @param  \App\Models\Field  $field
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
 
     // Chức năng sửa
     public function update(UpdateFieldRequest $request, Field $field)
     {
         $img_name = $request->file('image')->getClientOriginalName();
-        if(!Storage::exists('/public/admin/img'.$img_name)) {
-            Storage::putFileAs('public/admin/img', $request->file('image'), $img_name);
+        if(!Storage::exists('/public/dashboard/img'.$img_name)) {
+            Storage::putFileAs('public/dashboard/img', $request->file('image'), $img_name);
         }
         $array = [];
         $array = Arr::add($array, 'name', $request->name);
@@ -120,7 +120,7 @@ class FieldController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Field  $field
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
 
     // Chức năng xoá

@@ -86,35 +86,32 @@
                 <div class="row mt-2 mb-2 me-1" style="background-color: green">
                     <b class="text-white" style="font-size: x-large; text-align: center">ĐẶT SÂN</b>
                 </div>
-                <form class="needs-validation" action="" method="post" novalidate>
-                    <div class="row py-2">
+                <form class="needs-validation" action="{{route('orders.store')}}" method="post" novalidate>
+                    @csrf
+                    <div class="row py-2 me-5">
                         <div class="col-6">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="floatingName" placeholder="Họ tên"
-                                       value="" required>
-                                <label for="floatingName" class="form-label">Họ tên</label>
+                                <input type="text" class="form-control" id="floatingName{{ Session::get('customers')['id'] }}" placeholder="Họ tên"
+                                       value="{{ Session::get('customers')['name'] }}" disabled required>
+                                <label for="floatingName{{ Session::get('customers')['id'] }}" class="form-label">Họ và tên</label>
                                 <div class="invalid-feedback">Ô này không được để trống</div>
                             </div>
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="floatingNumber"
-                                       placeholder="Số điện thoại" required>
+                                       placeholder="Số điện thoại" value="{{ Session::get('customers')['phonenumber'] }}" disabled required>
                                 <label for="floatingNumber" class="form-label">Số điện thoại</label>
                                 <div class="invalid-feedback">Ô này không được để trống</div>
                             </div>
                             <div class="form-floating mb-3">
-                                <input placeholder="Select date" class="form-control" type="date" name="date" id="date"
-                                       placeholder="Ngày đặt sân" required>
-                                <label for="Date" class="form-label">Ngày đặt sân</label>
+                                <input placeholder="Select date" class="form-control" type="date" name="date" id="date" min="{{ $datenow }}" placeholder="Chọn ngày" required>
+                                <label for="Date" class="form-label">Chọn ngày</label>
+                                <div id="unvaliDATE"></div>
                                 <div class="invalid-feedback">Ô này không được để trống</div>
                             </div>
                             <div class="form-floating mb-3">
                                 <select class="form-select" name="times" id="times" required>
-
-                                    {{--                                    @foreach($times as $items)--}}
-                                    {{--                                            <option value="{{ $items -> id }}">{{ $items -> timeStart }} - {{ $items -> timeEnd }}</option>--}}
-                                    {{--                                        @endforeach--}}
                                 </select>
-                                <label for="TimeEnd">Khung giờ</label>
+                                <label for="TimeEnd">Chọn khung giờ</label>
                                 <div class="invalid-feedback">Ô này không được để trống</div>
                             </div>
                         </div>
@@ -122,9 +119,8 @@
                             <div class="form-floating mb-3">
                                 <select class="form-select" id="types" required>
                                     <option value="" selected>Chọn loại sân</option>
-
                                     @foreach($types as $items)
-                                        <option id="type{{$items->id}}"
+                                        <option id="type{{$items -> id}}"
                                                 value="{{ $items -> id }}">{{ $items -> type }}</option>
                                     @endforeach
                                 </select>
@@ -132,15 +128,18 @@
                                 <div class="invalid-feedback">Ô này không được để trống</div>
                             </div>
                             <div class="form-floating mb-3">
-                                <select class="form-select" name="fields" id="fields" onchange="" required>
+                                <select class="form-select" name="fields" id="fields" required>
                                 </select>
                                 <label for="fields">Sân</label>
                                 <div class="invalid-feedback">Ô này không được để trống</div>
                             </div>
+                            <div class="form-floating mb-3">
+                                <input class="form-control" type="text" name="order_note" id="order_note" required>
+                                <label for="order_note" class="form-label">Ghi chú</label>
+                                <div class="invalid-feedback">Ô này không được để trống</div>
+                            </div>
                         </div>
-                        <btn class="d-flex d-flex justify-content-evenly my-2" style="align-content: center">
-                            <input type="button" id="btn" class="btn btn-success" value="Đặt sân"/>
-                        </btn>
+                        <button type="submit" class="btn btn-success">Đặt sân</button>
                     </div>
                 </form>
             </div>
@@ -169,11 +168,10 @@
         </li>
     </ul>
 </footer>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-        crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
-        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
-        crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="../../resources/js/order.js"></script>
+<script src="../../resources/js/validate.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
 </body>
 </html>

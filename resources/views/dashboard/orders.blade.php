@@ -83,57 +83,133 @@
                 </a>
                 <ul class="dropdown-menu text-small shadow">
                     <li>
-                        <a class="dropdown-item" href="#">Đăng xuất</a>
+                        <a class="dropdown-item" href="{{route('dashboard.logout')}}">Đăng xuất</a>
                     </li>
                 </ul>
             </div>
         </div>
         {{-- End SideBar --}}
         <div class="col col-11 ps-3">
-            <div style="background-color: white">
-            <p><a href="{{route('customers.index')}}" class="link-primary">Trang chủ</a> / <a href="#"
-                                                                                              class="link-secondary"
-                                                                                              aria-disabled="true">Quản lý đặt sân</a></p>
-            </div>
             <div>
                 <h1 class="text-white mt-4 border-bottom border-white border-4 my-4"
                     style="font-family: 'system-ui'; font-size: xxx-large; text-align: center">QUẢN LÝ ĐẶT SÂN</h1>
             </div>
-            <div class="">
-                {{-- Table --}}
-                <table class="table table-light table-striped mt-4" border="1px" cellpadding="0" cellspacing="0"
-                       width="100%">
-                    <thead>
-                    <tr>
-                        <th scope="col">ID đơn</th>
-                        <th scope="col">Khách hàng</th>
-                        <th scope="col">Người quản lý</th>
-                        <th scope="col">Sân</th>
-                        <th scope="col">Thời gian</th>
-                        <th scope="col">Thành tiền</th>
-                        <th scope="col">Trạng thái</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    @foreach($orders as $item)
+            {{-- Table --}}
+            <div class="row">
+                {{-- ID --}}
+                <div class="col col-2">
+                    <table class="table table-light mt-4" border="1px" cellpadding="0" cellspacing="0"
+                           width="100%">
+                        <thead>
                         <tr>
-                            <th scope="row">{{ $item -> id }}</th>
-                            <td>{{ $item -> customers -> name }}</td>
-                            <td>{{ $item -> admins -> name }}</td>
-                            <td>{{ $item -> fields -> name }}</td>
-                            <td>
-                                {{ $item -> times -> timeStart }} - {{ $item -> times -> timeEnd }}<br>
-                                {{ $item -> times -> date }}
-                            </td>
-                            <td>{{ $item -> total }}</td>
-                            <td>{{ $item -> statuses -> status }}</td>
+                            <th scope="col">ID đơn</th>
                         </tr>
-                    @endforeach
-                    </tbody>
+                        </thead>
+                        <tbody>
+                        @foreach($details as $item)
+                            <tr>
+                                <th scope="row">{{ $item -> id }}</th>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+{{--                    {{ $orders->links() }}--}}
+                </div>
+                {{-- End Id --}}
 
-                </table>
-                {{ $orders->links() }}
+                {{-- Customer --}}
+                <div class="col col-3">
+                    <table class="table table-light mt-4" border="1px" cellpadding="0" cellspacing="0"
+                           width="100%">
+                        <thead>
+                        <tr>
+                            <th scope="col">Khách hàng</th>
+                            <th scope="col">Người quản lý</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($details as $item)
+                            <tr>
+                                <td>{{ $item -> customers -> name }}</td>
+                                <td>{{ $item -> admins -> name }}</td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+{{--                    {{ $orders->links() }}--}}
+                </div>
+                {{-- End Customer --}}
+
+                {{-- Times --}}
+                <div class="col col-4">
+                    <table class="table table-light mt-4" border="1px" cellpadding="0" cellspacing="0"
+                           width="100%">
+                        <thead>
+                        <tr>
+                            <th scope="col">Sân</th>
+                            <th scope="col">Thời gian</th>
+                            <th scope="col">Ghi chú</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($details as $item)
+                            <tr>
+                                <td>{{ $item -> fields -> name }}</td>
+                                <td>
+                                    {{ $item -> times -> timeStart }} - {{ $item -> times -> timeEnd }}<br>
+                                    {{ $item -> times -> date }}
+                                </td>
+                                <td>{{ $item -> orders -> order_note }}</td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+{{--                    {{ $orders->links() }}--}}
+                </div>
+                {{-- End Time --}}
+
+                {{-- Status --}}
+                <div class="col col-3">
+                    <table class="table table-light mt-4" border="1px" cellpadding="0" cellspacing="0"
+                           width="100%">
+                        <thead>
+                        <tr>
+                            <th scope="col">Trạng thái</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($details as $item)
+                            <tr>
+                                <td>@if(($item -> orders -> status) == 0)
+                                        Chưa xác nhận
+                                    @elseif(($item -> orders -> status) == 1)
+                                        Xác nhận
+                                    @else
+                                        Từ chối
+                                    @endif
+                                </td>
+                                <td>
+                                    <form method="post" action="{{ route('orders.accepted', $item -> orders) }}">
+                                        @csrf
+                                        @method('PUT')
+                                        <button class="btn btn-success btn-lg my-1"><i class="fa-solid fa-square-check"></i></button>
+                                    </form>
+
+                                    <form method="post" action="{{ route('orders.denied', $item -> orders) }}">
+                                        @csrf
+                                        @method('PUT')
+                                        <button class="btn btn-danger btn-lg my-1"><i class="fa-solid fa-square-xmark"></i></button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+{{--                    {{ $orders->links() }}--}}
+                </div>
+                {{-- End status --}}
             </div>
+            {{-- End Table --}}
         </div>
     </div>
 </div>

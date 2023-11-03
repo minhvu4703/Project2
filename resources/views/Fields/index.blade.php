@@ -84,7 +84,7 @@
                 </a>
                 <ul class="dropdown-menu text-small shadow">
                     <li>
-                        <a class="dropdown-item" href="#">Đăng xuất</a>
+                        <a class="dropdown-item" href="{{route('dashboard.logout')}}">Đăng xuất</a>
                     </li>
                 </ul>
             </div>
@@ -93,90 +93,120 @@
 
         <!--Main -->
         <div class="col col-11 ps-3">
-
-            <!--Bread crumb -->
-            <div class="" style="background-color: white">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ route('customers.index') }}">Trang chủ</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Quản lý sân</li>
-                    </ol>
-                </nav>
-            </div>
-
             <!--Title -->
             <div>
-                <h1 class="text-white mt-4" style="font-family: 'system-ui'; font-size: xxx-large ; text-align: center">QUẢN LÝ SÂN</h1>
+                <h1 class="text-white mt-4 border-bottom border-4 my-4"
+                    style="font-family: 'system-ui'; font-size: xxx-large ; text-align: center">QUẢN LÝ SÂN</h1>
             </div>
-            <div class="border-top border-4 my-4">
-
+            <a class="btn btn-success btn-lg my-2" href="{{ route('Fields.create') }}"><i class="fa-solid fa-circle-plus"></i></a>
+            <div class="row mb-5">
                 <!--Table -->
-                <table class="table table-info table-striped" border="1px" cellpadding="0" cellspacing="0" width="100%">
-                    <thead>
-                    <tr>
-                        <a class="btn btn-success btn-lg my-2" href="{{ route('Fields.create') }}"><i class="fa-solid fa-circle-plus"></i></a> <!-- -->
-                        <th scope="col">ID sân</th>
-                        <th scope="col">Tên sân</th>
-                        <th scope="col">Ảnh sân</th>
-                        <th scope="col">Mô tả sân</th>
-                        <th scope="col">Loại sân</th>
-                        <th scope="col">Tuỳ chọn</th>
-                    </tr>
-                    </thead>
-
-                    <tbody>
-                    @foreach($fields as $item)
+                <div class="col col-4 mb-5">
+                    <table class="table table-light table-striped" border="1px" cellpadding="0" cellspacing="0"
+                           width="100%">
+                        <thead>
                         <tr>
-                            <th scope="row">{{ $item -> id }}</th>
-                            <td>{{ $item -> name }}</td>
-                            <td>
-                                <img src="{{ asset(\Illuminate\Support\Facades\Storage::url('admin/img/').$item->image) }}" width="100px" height="100px">
-                            </td>
-                            <td>{{ $item->description }}</td>
-                            <td>{{ $item->types->type }}</td>
+                            <th scope="col">ID sân</th>
+                        </tr>
+                        <tbody>
+                        @foreach($fields as $item)
+                            <tr>
+                                <th scope="row"> {{$item -> id}} </th>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                </div>
+                {{--cot san--}}
+                <div class="col col-4">
+                    <table class="table table-light table-striped" border="1px" cellpadding="0" cellspacing="0"
+                           width="100%">
+                        <thead>
+                        <tr>
+                            <th scope="col">Tên sân</th>
+                            <th scope="col">Ảnh sân</th>
+                            <th scope="col">Mô tả sân</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($fields as $item)
+                            <tr>
+                                <td>{{ $item -> name }}</td>
+                                <td>
+                                    <img
+                                        src="{{ asset(\Illuminate\Support\Facades\Storage::url('admin/img/').$item->image) }}"
+                                        width="100px" height="100px">
+                                </td>
+                                <td>{{ $item->description }}</td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                </div>
+                {{--het cot san--}}
+                <div class="col col-4">
+                    <table class="table table-light table-striped" border="1px" cellpadding="0" cellspacing="0"
+                           width="100%">
+                        <thead>
+                        <tr>
+                            <th scope="col">Loại sân</th>
+                            <th scope="col">Tuỳ chọn</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            @foreach($fields as $item)
+                                <td>{{ $item->types->type }}</td>
+                                <td>
+                                    <a class="btn btn-warning btn-lg my-1" href="{{ route('Fields.edit', $item->id) }}"><i
+                                            class="fa-solid fa-pen-to-square"></i></a>    <!--} -->
+                                    <button type="button" class="btn btn-danger btn-lg my-1" data-bs-toggle="modal"
+                                            data-bs-target="#myModal{{ $item->id }}"><i
+                                            class="fa-solid fa-trash-can"></i></button>
 
-                            <td>
-                                <a class="btn btn-warning btn-lg my-1" href="{{ route('Fields.edit', $item->id) }}"><i class="fa-solid fa-pen-to-square"></i></a>    <!--} -->
-                                <button type="button" class="btn btn-danger btn-lg my-1" data-bs-toggle="modal" data-bs-target="#myModal{{ $item->id }}"><i class="fa-solid fa-trash-can"></i></button>
+                                    <!--Mordal -->
+                                    <div class="modal fade" id="myModal{{ $item->id }}">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <!-- Modal Header -->
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title">Xác nhận xóa</h4>
+                                                    <button type="button" class="btn-close"
+                                                            data-bs-dismiss="modal"></button>
+                                                </div>
 
-                                <!--Mordal -->
-                                <div class="modal fade" id="myModal{{ $item->id }}">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <!-- Modal Header -->
-                                            <div class="modal-header">
-                                                <h4 class="modal-title">Xác nhận xóa</h4>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                                            </div>
+                                                <!-- Modal body -->
+                                                <div class="modal-body">
+                                                    Bạn có chắc chắn muốn xóa mục này?
+                                                </div>
 
-                                            <!-- Modal body -->
-                                            <div class="modal-body">
-                                                Bạn có chắc chắn muốn xóa mục này?
-                                            </div>
-
-                                            <!-- Modal footer -->
-                                            <div class="modal-footer">
+                                                <!-- Modal footer -->
                                                 <div class="modal-footer">
-                                                    <button class="btn btn-light" data-bs-dismiss="modal">Không</button>
-                                                    <form method="post" action="{{ route('Fields.destroy', $item->id) }}">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button class="btn btn-danger">Có</button>
-                                                    </form>
+                                                    <div class="modal-footer">
+                                                        <button class="btn btn-light" data-bs-dismiss="modal">Không
+                                                        </button>
+                                                        <form method="post"
+                                                              action="{{ route('Fields.destroy', $item->id) }}">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button class="btn btn-danger">Có</button>
+                                                        </form>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </td>
+                                </td>
                         </tr>
-                    @endforeach
-                    </tbody>
-                </table>
-                {{ $fields->links() }}
+                        @endforeach
+                        </tbody>
+                    </table>
+                    {{ $fields->links() }}
+                </div>
             </div>
         </div>
     </div>
+</div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>

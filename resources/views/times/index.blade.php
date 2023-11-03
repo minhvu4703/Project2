@@ -97,17 +97,6 @@
         {{-- End SideBar --}}
         {{--Main--}}
         <div class="col col-11 ps-3">
-
-            {{--Breadcrumb--}}
-            <nav aria-label="breadcrumb">
-                <div style="background-color: white">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ route('customers.index') }}">Trang chủ</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Quản lý khung giờ</li>
-                    </ol>
-                </div>
-            </nav>
-
             {{--Title--}}
             <div>
                 <h1 class="text-white mt-4 border-bottom border-white border-4 my-4"
@@ -120,50 +109,14 @@
                        width="100%">
                     <thead>
                     <tr>
-                        {{--                    <a class="btn btn-success btn-lg my-2" href="{{ route('fields.create') }}"><i class="fa-regular fa-square-plus fa-lg fa-bounce"></i></a>--}}
                         <th scope="col">Khung giờ</th>
-                        {{--                    <th scope="col">Tuỳ chọn</th>--}}
                     </tr>
                     </thead>
 
                     <tbody>
                     @foreach($times as $item)
                         <tr>
-                            <td>{{ $item -> timeStart }} - {{ $item -> timeEnd }}</td>
-                            {{--                        <td>--}}
-                            {{--                            <a class="btn btn-warning btn-lg my-1" href="{{ route('fields.edit', $item->id) }}"><i class="fa-regular fa-pen-to-square fa-shake"></i></a>--}}
-                            {{--                            <button type="button" class="btn btn-danger btn-lg my-1" data-bs-toggle="modal" data-bs-target="#myModal{{ $item->id }}"><i class="fa-solid fa-dumpster fa-shake"></i></button>--}}
-
-                            {{--                            --}}{{--Modal--}}
-                            {{--                            <div class="modal fade" id="myModal{{ $item->id }}">--}}
-                            {{--                                <div class="modal-dialog">--}}
-                            {{--                                    <div class="modal-content">--}}
-                            {{--                                        <!-- Modal Header -->--}}
-                            {{--                                        <div class="modal-header">--}}
-                            {{--                                            <h4 class="modal-title">Xác nhận xóa</h4>--}}
-                            {{--                                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>--}}
-                            {{--                                        </div>--}}
-
-                            {{--                                        <!-- Modal body -->--}}
-                            {{--                                        <div class="modal-body">--}}
-                            {{--                                            Bạn có chắc chắn muốn xóa mục này?--}}
-                            {{--                                        </div>--}}
-
-                            {{--                                        <!-- Modal footer -->--}}
-                            {{--                                        <div class="modal-footer">--}}
-                            {{--                                            <div class="modal-footer">--}}
-                            {{--                                                <button class="btn btn-light" data-bs-dismiss="modal">Không</button>--}}
-                            {{--                                                <form method="post" action="{{ route('fields.destroy', $item->id) }}">--}}
-                            {{--                                                    @csrf--}}
-                            {{--                                                    @method('DELETE')--}}
-                            {{--                                                    <button class="btn btn-danger">Có</button>--}}
-                            {{--                                                </form>--}}
-                            {{--                                            </div>--}}
-                            {{--                                        </div>--}}
-                            {{--                                    </div>--}}
-                            {{--                                </div>--}}
-                            {{--                            </div>--}}
-                            {{--                        </td>--}}
+                            <td>{{ $item -> time_start }} - {{ $item -> time_end }}</td>
                         </tr>
                     @endforeach
                     </tbody>

@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class loginAdmin
 {
@@ -19,7 +20,7 @@ class loginAdmin
         if (session()->has('admins')) {
             return $next($request);
         } else {
-            return Redirect::route('admin.login');
+            return Redirect::route('dashboard.login');
         }
     }
 }
